@@ -46,7 +46,7 @@ public class WikiActivity extends AppCompatActivity {
 
         LinearLayout layout = findViewById(R.id.vert_layout);
 //        layout.addView(new Button(getApplicationContext()));
-        System.out.println(weapons.size());
+//        System.out.println(weapons.size());
         for(int i=0; i<weapons.size();i++) {
             System.out.println(i);
             buttons[i] = new Button(getApplicationContext());
