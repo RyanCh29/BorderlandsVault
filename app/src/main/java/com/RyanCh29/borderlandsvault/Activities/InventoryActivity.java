@@ -1,7 +1,11 @@
 package com.RyanCh29.borderlandsvault.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.RyanCh29.borderlandsvault.R;
 
 public class InventoryActivity extends AppCompatActivity {
@@ -11,6 +15,21 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
+    }
+    public void startMainActivity(View view) {
+        //start loading activity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void startWikiActivity(View view) {
+        //start loading activity
+        Intent intent = new Intent(this, WikiActivity.class);
+        startActivity(intent);
+    }
+    public void startSkillActivity(View view) {
+        //start loading activity
+        Intent intent = new Intent(this, SkillActivity.class);
+        startActivity(intent);
     }
 
 

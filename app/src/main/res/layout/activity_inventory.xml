@@ -4,4 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.InventoryActivity"/>
+    tools:context=".Activities.InventoryActivity">
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/menubar_mission_icon"
+        android:onClick="startMainActivity"
+        app:layout_constraintEnd_toStartOf="@+id/infoButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/infoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/menubar_map_icon"
+        android:onClick="startWikiActivity"
+        app:layout_constraintBaseline_toBaselineOf="@+id/homeButton"
+        app:layout_constraintEnd_toStartOf="@+id/inventoryButton"
+        app:layout_constraintStart_toEndOf="@+id/homeButton" />
+
+    <Button
+        android:id="@+id/inventoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/menubar_inventory_icon"
+        app:layout_constraintBaseline_toBaselineOf="@+id/infoButton"
+        app:layout_constraintEnd_toStartOf="@+id/skillButton"
+        app:layout_constraintStart_toEndOf="@+id/infoButton" />
+
+    <Button
+        android:id="@+id/skillButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/menubar_skill_icon"
+        android:onClick="startSkillActivity"
+        app:layout_constraintBaseline_toBaselineOf="@+id/inventoryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
