@@ -1,9 +1,6 @@
 package com.RyanCh29.borderlandsvault.CSV;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Environment;
-import com.RyanCh29.borderlandsvault.R;
 import com.opencsv.CSVReader;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -17,7 +14,7 @@ public class CSVManipulator {
     public List<String[]> CSVRead(Context context, String file) {
         List<String[]> result = null;
         try {
-            InputStream inputStream = context.getAssets().open("Borderlands_Database_CSV_weapons.csv");
+            InputStream inputStream = context.getAssets().open(file);
             BufferedReader buffReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             CSVReader reader = new CSVReader(buffReader);
 

@@ -26,6 +26,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_map_icon"
+        android:onClick="startWikiActivity"
         app:layout_constraintBaseline_toBaselineOf="@+id/homeButton"
         app:layout_constraintEnd_toStartOf="@+id/inventoryButton"
         app:layout_constraintStart_toEndOf="@+id/homeButton" />
@@ -49,6 +50,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_skill_icon"
+        android:onClick="startSkillActivity"
         app:layout_constraintBaseline_toBaselineOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
