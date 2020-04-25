@@ -40,7 +40,7 @@ public class WikiActivity extends AppCompatActivity {
     public void testCSV() {
         CSVManipulator manipulator = new CSVManipulator();
 
-        List<String[]> weapons = manipulator.CSVRead(getApplicationContext(), "Borderlands_Database_CSV_weapons.csv");
+        List<String[]> weapons = manipulator.CSVReadAsset(getApplicationContext(), "Borderlands_Database_CSV_weapons.csv");
 
         Button[] buttons = new Button[weapons.size()];
 
