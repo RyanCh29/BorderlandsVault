@@ -1,4 +1,4 @@
-package com.RyanCh29.borderlandsvault;
+package com.RyanCh29.borderlandsvault.Gear;
 
 public class Anoinment {
     int ID;

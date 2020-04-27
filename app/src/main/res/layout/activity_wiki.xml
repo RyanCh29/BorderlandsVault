@@ -8,66 +8,108 @@
 
     <Button
         android:id="@+id/homeButton"
-        android:layout_width="88dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_mission_icon"
         android:onClick="startMainActivity"
-        app:layout_constraintEnd_toStartOf="@+id/infoButton"
+        app:layout_constraintEnd_toStartOf="@+id/wikiButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/infoButton"
+        android:id="@+id/wikiButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_map_icon"
         app:layout_constraintBaseline_toBaselineOf="@+id/homeButton"
         app:layout_constraintEnd_toStartOf="@+id/inventoryButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/homeButton" />
 
     <Button
         android:id="@+id/inventoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_inventory_icon"
         android:onClick="startInventoryActivity"
-        app:layout_constraintBaseline_toBaselineOf="@+id/infoButton"
-        app:layout_constraintEnd_toStartOf="@+id/skillButton"
-        app:layout_constraintStart_toEndOf="@+id/infoButton" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/wikiButton"
+        app:layout_constraintEnd_toStartOf="@+id/buildsButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wikiButton" />
 
     <Button
-        android:id="@+id/skillButton"
+        android:id="@+id/buildsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/menubar_skill_icon"
         android:onClick="startSkillActivity"
         app:layout_constraintBaseline_toBaselineOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
 
     <ScrollView
-        android:layout_width="409dp"
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <LinearLayout
-            android:id="@+id/vert_layout"
+        <TableLayout
+            android:id="@+id/table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:stretchColumns="*" />
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeButton"
+        app:srcCompat="@drawable/borderlands3logo" />
+
+    <Button
+        android:id="@+id/left_sort_button"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/right_sort_button"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:queryHint="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

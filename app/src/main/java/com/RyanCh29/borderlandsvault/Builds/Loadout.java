@@ -1,4 +1,4 @@
-package com.RyanCh29.borderlandsvault;
+package com.RyanCh29.borderlandsvault.Builds;
 
 /*
  * Loadout Class

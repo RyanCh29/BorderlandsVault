@@ -1,7 +1,5 @@
 package com.RyanCh29.borderlandsvault.Gear;
 
-import com.RyanCh29.borderlandsvault.Anoinment;
-
 public class Weapon extends Gear {
     private int damage;
     private int multiplier;
