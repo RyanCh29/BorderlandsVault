@@ -29,13 +29,9 @@ public class CSVManipulator {
             BufferedReader buffReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             CSVReader reader = new CSVReader(buffReader);
 
-//            File csvFile = new File(Environment.getExternalStorageDirectory() + file);
-//            CSVReader reader = new CSVReader(new FileReader(csvFile.getAbsolutePath()));
             result = new ArrayList<>();
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
-                // nextLine[] is an array of values from the line
-//                System.out.println(nextLine[0]);
                 result.add(nextLine);
 
             }
@@ -44,22 +40,26 @@ public class CSVManipulator {
             e.printStackTrace();
         }
         return result;
-
     }
-    public List<String[]> CSVReadFile(Context context, String file) {
+    public List<String[]> CSVReadFile(Context context, String fileName) {
         List<String[]> result = null;
         try {
-            InputStream inputStream = new FileInputStream(context.getFilesDir()+"/"+file);
+            //check if file exists, if not create it before reading
+            File file = new File(context.getFilesDir()+"/" + fileName);
+            if(!file.exists()) {
+                //create file
+                file.createNewFile();
+                result = new ArrayList<>();
+                return result;
+            }
+
+            InputStream inputStream = new FileInputStream(file);
             BufferedReader buffReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             CSVReader reader = new CSVReader(buffReader);
 
-//            File csvFile = new File(Environment.getExternalStorageDirectory() + file);
-//            CSVReader reader = new CSVReader(new FileReader(csvFile.getAbsolutePath()));
             result = new ArrayList<>();
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
-                // nextLine[] is an array of values from the line
-//                System.out.println(nextLine[0]);
                 result.add(nextLine);
 
             }
@@ -68,17 +68,16 @@ public class CSVManipulator {
             e.printStackTrace();
         }
         return result;
-
     }
 
     public void CSVWrite(Context context, String fileName, List<String[]> data) {
         try {
             //check if file exists, if not create it before writing
 //            System.out.println(context.getFilesDir()+"/Borderlands_User_CSV_gear.csv");
-            File file = new File(context.getFilesDir()+"/Borderlands_User_CSV_gear.csv");
+            File file = new File(context.getFilesDir()+"/" + fileName);
 
             if(!file.exists()) {
-//                create file
+                //create file
                 file.createNewFile();
             }
             FileOutputStream outputStream = new FileOutputStream(file);

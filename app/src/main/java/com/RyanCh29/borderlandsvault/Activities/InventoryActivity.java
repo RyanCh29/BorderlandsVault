@@ -8,34 +8,53 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
 import com.RyanCh29.borderlandsvault.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity {
-    private List<String[]> gear;
+    private List<String[]> all; //0
+    private List<String[]> weapons; //1
+    private List<String[]> shields; //2
+    private List<String[]> grenades; //3
+    private List<String[]> classMods; //4
+    private List<String[]> artifacts; //5
+
+    private int currentContent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+
         CSVManipulator csvManipulator = new CSVManipulator();
 
         //read user files
-        List<String[]> artifacts = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv");
-        List<String[]> classMods = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_classMods.csv");
-        List<String[]> grenades = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv");
-        List<String[]> shields = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_shields.csv");
-        List<String[]> weapons = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_weapons.csv");
+        artifacts = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv");
+        classMods = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_classMods.csv");
+        grenades = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv");
+        shields = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_shields.csv");
+        weapons = csvManipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_weapons.csv");
 
+        all = new ArrayList<>();
+        all.addAll(weapons);
+        all.addAll(shields);
+        all.addAll(grenades);
+        all.addAll(classMods);
+        all.addAll(artifacts);
 
-
-
-
-        //when activity is loaded file is read and gear is displayed from file
-        readGear();
-        showGear(gear);
+        //set default output to all items
+        currentContent = 0;
+        changeBanner("All Legendaries");
+        showContent(all);
     }
+
     public void startMainActivity(View view) {
         //start main activity
         Intent intent = new Intent(this, MainActivity.class);
@@ -52,48 +71,146 @@ public class InventoryActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void readGear() {
-        //read from all gear files
-        CSVManipulator manipulator = new CSVManipulator();
-//        gear = manipulator.CSVReadAsset(getApplicationContext(), "Borderlands_Database_CSV_shields.csv");
-        gear = manipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_gear.csv");
-
-        System.out.println("read gear called");
-
+    public void  makeToast(String[] item) {
+        StringBuilder text = new StringBuilder();
+        for(String str: item){
+            text.append(" ").append(str).append(",");
+        }
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
     }
 
-    public void showGear(List<String[]> stuff) {
-        Button[] buttons = new Button[stuff.size()];
+    public void showContent(final List<String[]> content) {
 
+        //clear existing
         TableLayout layout = findViewById(R.id.table);
-        layout.removeAllViewsInLayout();
-        for(int i=0; i<stuff.size();i++) {
-            buttons[i] = new Button(getApplicationContext());
-            buttons[i].setText((i+1) + ": " + stuff.get(i)[0]);
-            buttons[i].setId(i);
+        layout.removeAllViews();
 
-            if(i>0 && (i%2)==0){
-//                System.out.println(i);
-//                System.out.println("hi");
+        int size = content.size();
 
-                TableRow tr = new TableRow(getApplicationContext());
-                tr.addView(buttons[i-1]);
-                tr.addView(buttons[i]);
-                layout.addView(tr);
-//                System.out.println(gear.size());
+        if(size==0) {
+            //TODO: make the empty button look like the empty slots in the in-game inventory
+            Button emptyButton = new Button(getApplicationContext());
+            emptyButton.setText("Empty");
+            layout.addView(emptyButton);
+        }
+        else {
+            Button[] buttons;
+            if(size%2==1) {
+                buttons = new Button[size+1];
+            }
+            else {
+                buttons = new Button[size];
             }
 
-        }
-        System.out.println(stuff.size());
-
-        if(stuff.size()-1%2==1) {
-            System.out.println("odd size");
-
             TableRow tr = new TableRow(getApplicationContext());
-            tr.addView(buttons[stuff.size()]);
-            layout.addView(tr);
+            for(int i=0; i<buttons.length;i++) {
+                if(i<size) {
+//                    System.out.println(i);
+                    buttons[i] = new Button(getApplicationContext());
+                    buttons[i].setText(content.get(i)[0]);
+                    buttons[i].setId(i);
 
+                    final int finalI = i;
+                    buttons[i].setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            //TODO: improve onClick functionality to better display the info
+                            makeToast(content.get(finalI));
+                        }
+                    });
+
+                    tr.addView(buttons[i]);
+                }
+                else if(i==size) {
+                    //TODO: make the empty button look like the empty slots in the in-game inventory
+                    buttons[i] = new Button(getApplicationContext());
+                    buttons[i].setText("Empty");
+                    tr.addView(buttons[i]);
+
+                }
+
+                if((i%2)==1){
+                    layout.addView(tr);
+                    tr = new TableRow(getApplicationContext());
+                }
+            }
         }
+    }
+
+    public void changeBanner(String newBanner) {
+        TextView banner = findViewById(R.id.bannerText);
+        banner.setText(newBanner);
+    }
+
+    public void changeContentLeft(View view) {
+
+        if(currentContent==0) {
+            currentContent=5;
+        }
+        else {
+            currentContent-=1;
+        }
+        //change banner text
+
+        //change content
+        if(currentContent==0) {
+            changeBanner("All Legendaries");
+            showContent(all);
+        } else if (currentContent==1) {
+            changeBanner("Legendary Weapons");
+            showContent(weapons);
+        }else if (currentContent==2) {
+            changeBanner("Legendary Shields");
+            showContent(shields);
+        }else if (currentContent==3) {
+            changeBanner("Legendary Grenade Mods");
+            showContent(grenades);
+        }else if (currentContent==4) {
+            changeBanner("Legendary Class Mods");
+            showContent(classMods);
+        }else if (currentContent==5) {
+            changeBanner("Legendary Artifacts");
+            showContent(artifacts);
+        }
+
+    }
+    public void changeContentRight(View view) {
+        if(currentContent==5) {
+            currentContent=0;
+        }
+        else {
+            currentContent+=1;
+        }
+
+        //change banner text
+
+        //change content
+        if(currentContent==0) {
+            changeBanner("All Legendaries");
+            showContent(all);
+        } else if (currentContent==1) {
+            changeBanner("Legendary Weapons");
+            showContent(weapons);
+        }else if (currentContent==2) {
+            changeBanner("Legendary Shields");
+            showContent(shields);
+        }else if (currentContent==3) {
+            changeBanner("Legendary Grenade Mods");
+            showContent(grenades);
+        }else if (currentContent==4) {
+            changeBanner("Legendary Class Mods");
+            showContent(classMods);
+        }else if (currentContent==5) {
+            changeBanner("Legendary Artifacts");
+            showContent(artifacts);
+        }
+
+    }
+    //TODO: implement search functionality
+    public List<String[]> search(String[] keywords) {
+        List<String[]> results = new ArrayList<>();
+
+        return results;
     }
 
 //    public void addGear(View view) {

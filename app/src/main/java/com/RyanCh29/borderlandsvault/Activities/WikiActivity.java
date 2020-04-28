@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
@@ -36,8 +37,9 @@ public class WikiActivity extends AppCompatActivity {
         grenadesDB = csvManipulator.CSVReadAsset(getApplicationContext(), "Borderlands_Database_CSV_grenades.csv");
         shieldsDB = csvManipulator.CSVReadAsset(getApplicationContext(), "Borderlands_Database_CSV_shields.csv");
         weaponsDB = csvManipulator.CSVReadAsset(getApplicationContext(), "Borderlands_Database_CSV_weapons.csv");
-        currentContent = 0;
         //set default output to all legendary weapons
+        currentContent = 0;
+        changeBanner("Legendary Weapons");
         showContent(weaponsDB);
 
     }
@@ -57,6 +59,7 @@ public class WikiActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SkillActivity.class);
         startActivity(intent);
     }
+
     public void  makeToast(String[] item) {
         StringBuilder text = new StringBuilder();
         for(String str: item){
@@ -85,13 +88,18 @@ public class WikiActivity extends AppCompatActivity {
             final int finalI = i;
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    // Code here executes on main thread after user presses button
+                    //TODO: improve onClick functionality to better display the info
                     makeToast(content.get(finalI));
                 }
             });
             layout.addView(buttons[i]);
 
         }
+    }
+
+    public void changeBanner(String newBanner) {
+        TextView banner = findViewById(R.id.bannerText);
+        banner.setText(newBanner);
     }
 
     public void changeContentLeft(View view) {
@@ -102,27 +110,27 @@ public class WikiActivity extends AppCompatActivity {
         else {
             currentContent-=1;
         }
-//        System.out.println("CURRENT" + currentContent + "--------------------------------------------");
         //change banner text
 
         //change content
         if(currentContent==0) {
+            changeBanner("Legendary Weapons");
             showContent(weaponsDB);
         } else if (currentContent==1) {
+            changeBanner("Legendary Shields");
             showContent(shieldsDB);
-
         }else if (currentContent==2) {
+            changeBanner("Legendary Grenade Mods");
             showContent(grenadesDB);
-
         }else if (currentContent==3) {
+            changeBanner("Legendary Class Mods");
             showContent(classModsDB);
-
         }else if (currentContent==4) {
+            changeBanner("Legendary Artifacts");
             showContent(artifactsDB);
-
         }else if (currentContent==5) {
+            changeBanner("Anointments");
             showContent(anointsDB);
-
         }
 
     }
@@ -134,31 +142,36 @@ public class WikiActivity extends AppCompatActivity {
             currentContent+=1;
         }
 
-
         //change banner text
 
         //change content
         if(currentContent==0) {
+            changeBanner("Legendary Weapons");
             showContent(weaponsDB);
         } else if (currentContent==1) {
+            changeBanner("Legendary Shields");
             showContent(shieldsDB);
 
         }else if (currentContent==2) {
+            changeBanner("Legendary Grenade Mods");
             showContent(grenadesDB);
 
         }else if (currentContent==3) {
+            changeBanner("Legendary Class Mods");
             showContent(classModsDB);
 
         }else if (currentContent==4) {
+            changeBanner("Legendary Artifacts");
             showContent(artifactsDB);
 
         }else if (currentContent==5) {
+            changeBanner("Anointments");
             showContent(anointsDB);
 
         }
 
     }
-
+    //TODO: implement search functionality
     public List<String[]> search(String[] keywords) {
         List<String[]> results = new ArrayList<>();
 
