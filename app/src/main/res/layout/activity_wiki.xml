@@ -87,6 +87,7 @@
         android:id="@+id/left_sort_button"
         android:layout_width="89dp"
         android:layout_height="39dp"
+        android:onClick="changeContentLeft"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
@@ -95,6 +96,7 @@
         android:id="@+id/right_sort_button"
         android:layout_width="89dp"
         android:layout_height="39dp"
+        android:onClick="changeContentRight"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />

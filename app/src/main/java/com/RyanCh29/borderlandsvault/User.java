@@ -1,24 +1,26 @@
 package com.RyanCh29.borderlandsvault;
 
-import com.RyanCh29.borderlandsvault.Builds.Loadout;
-import com.RyanCh29.borderlandsvault.Builds.SkillBuild;
+import com.RyanCh29.borderlandsvault.Builds.Build;
 
 /*
  * User Class
- * This class is for holding all the data for the user including name, vault, loadouts, builds, preferences, etc.
+ * This class is for holding all the data for the user including name, inventory, builds, preferences, etc.
  *
  */
 public class User {
-    String name;
-//    Vault vault;
-    SkillBuild[] builds;
-    Loadout[] loadouts;
+    private String name;
+    private Inventory inventory;
+    private Build[] builds;
 
-    public User() {
+    public User(Inventory inv, Build[] b) {
+        this.inventory = inv;
+        this.builds = b;
 
     }
 
+    public void setInventory(Inventory inventory) { this.inventory = inventory; }
+    public void setBuilds(Build[] builds) { this.builds = builds; }
 
-
-
+    public Inventory getInventory() { return inventory; }
+    public Build[] getBuilds() { return builds; }
 }
