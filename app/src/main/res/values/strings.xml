@@ -5,7 +5,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_inventory">InventoryActivity</string>
     <string-array name="gear_array">
-        <item>Gun</item>
+        <item>Add Gear</item>
+        <item>Weapon</item>
         <item>Shield</item>
         <item>Grenade Mod</item>
         <item>Class Mod</item>

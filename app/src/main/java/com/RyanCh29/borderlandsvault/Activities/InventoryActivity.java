@@ -12,12 +12,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
+import com.RyanCh29.borderlandsvault.Dialogs.ArtifactDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.ChoiceDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.ClassModDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.GrenadeModDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.ShieldDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.WeaponDialog;
+import com.RyanCh29.borderlandsvault.Gear.Weapon;
 import com.RyanCh29.borderlandsvault.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InventoryActivity extends AppCompatActivity {
+public class InventoryActivity extends AppCompatActivity implements ChoiceDialog.ChoiceDialogListener,
+        WeaponDialog.WeaponDialogListener,
+        ShieldDialog.ShieldDialogListener,
+        GrenadeModDialog.GrenadeModDialogListener,
+        ClassModDialog.ClassModDialogListener,
+        ArtifactDialog.ArtifactDialogListener {
     private List<String[]> all; //0
     private List<String[]> weapons; //1
     private List<String[]> shields; //2
@@ -26,6 +38,7 @@ public class InventoryActivity extends AppCompatActivity {
     private List<String[]> artifacts; //5
 
     private int currentContent;
+    private int choice;
 
 
     @Override
@@ -49,6 +62,7 @@ public class InventoryActivity extends AppCompatActivity {
         all.addAll(classMods);
         all.addAll(artifacts);
 
+        choice = 0;
         //set default output to all items
         currentContent = 0;
         changeBanner("All Legendaries");
@@ -150,8 +164,6 @@ public class InventoryActivity extends AppCompatActivity {
         else {
             currentContent-=1;
         }
-        //change banner text
-
         //change content
         if(currentContent==0) {
             changeBanner("All Legendaries");
@@ -181,9 +193,6 @@ public class InventoryActivity extends AppCompatActivity {
         else {
             currentContent+=1;
         }
-
-        //change banner text
-
         //change content
         if(currentContent==0) {
             changeBanner("All Legendaries");
@@ -213,11 +222,154 @@ public class InventoryActivity extends AppCompatActivity {
         return results;
     }
 
-//    public void addGear(View view) {
-//        open dialog box where user will enter info
-//        InventoryDialog dialog = new InventoryDialog();
-//        dialog.show(getSupportFragmentManager(), "add weapon");
-//    }
+
+    public void addGear(View view) {
+        //open dialog to pick what type of gear to add
+        //get choice from dialog and open new dialog to input the info
+        //get info and send it back to the activity
+        openDialog(choice); // choice dialog
+        System.out.println("first dialog");
+
+        choice = 0; // reset choice
+    }
+
+    //give parameter for which dialog to open
+    public void openDialog(int c) {
+
+        if(c == 0) {
+            ChoiceDialog choice = new ChoiceDialog();
+            choice.show(getSupportFragmentManager(),"choice dialog");
+        } else if(c == 1) {
+            WeaponDialog weaponDialog = new WeaponDialog();
+            weaponDialog.show(getSupportFragmentManager(),"weapon dialog");
+        } else if(c == 2) {
+            ShieldDialog ShieldDialog = new ShieldDialog();
+            ShieldDialog.show(getSupportFragmentManager(),"Shield dialog");
+        } else if(c == 3) {
+            GrenadeModDialog GrenadeModDialog = new GrenadeModDialog();
+            GrenadeModDialog.show(getSupportFragmentManager(),"GrenadeMod dialog");
+        } else if(c == 4) {
+            ClassModDialog ClassModDialog = new ClassModDialog();
+            ClassModDialog.show(getSupportFragmentManager(),"ClassMod dialog");
+        } else if(c == 5) {
+            ArtifactDialog ArtifactDialog = new ArtifactDialog();
+            ArtifactDialog.show(getSupportFragmentManager(),"Artifact dialog");
+        }
+
+    }
+
+    public void getChoice(int c) {
+        choice = c;
+        System.out.println(c);
+        //open new dialog
+        openDialog(choice); // adding gear dialog
+        System.out.println("second dialog");
+
+    }
+
+    public void addWeapon(String score, String lvl, String name, String type, String dmg,
+                          String accuracy, String handling, String reload, String fireRate, String magazine,
+                          String redText) {
+        StringBuilder text = new StringBuilder();
+
+        text.append(score).append(", ");
+        text.append(lvl).append(", ");
+        text.append(name).append(", ");
+        text.append(type).append(", ");
+        text.append(dmg).append(", ");
+        text.append(accuracy).append(", ");
+        text.append(handling).append(", ");
+        text.append(reload).append(", ");
+        text.append(fireRate).append(", ");
+        text.append(magazine).append(", ");
+        text.append(redText).append(", ");
+
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
+    }
+    public void addShield(String score, String lvl, String name, String type, String dmg,
+                          String accuracy, String handling, String reload, String fireRate, String magazine,
+                          String redText) {
+        StringBuilder text = new StringBuilder();
+
+        text.append(score).append(", ");
+        text.append(lvl).append(", ");
+        text.append(name).append(", ");
+        text.append(type).append(", ");
+        text.append(dmg).append(", ");
+        text.append(accuracy).append(", ");
+        text.append(handling).append(", ");
+        text.append(reload).append(", ");
+        text.append(fireRate).append(", ");
+        text.append(magazine).append(", ");
+        text.append(redText).append(", ");
+
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
+    }
+    public void addGrenadeMod(String score, String lvl, String name, String type, String dmg,
+                          String accuracy, String handling, String reload, String fireRate, String magazine,
+                          String redText) {
+        StringBuilder text = new StringBuilder();
+
+        text.append(score).append(", ");
+        text.append(lvl).append(", ");
+        text.append(name).append(", ");
+        text.append(type).append(", ");
+        text.append(dmg).append(", ");
+        text.append(accuracy).append(", ");
+        text.append(handling).append(", ");
+        text.append(reload).append(", ");
+        text.append(fireRate).append(", ");
+        text.append(magazine).append(", ");
+        text.append(redText).append(", ");
+
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
+    }
+    public void addClassMod(String score, String lvl, String name, String type, String dmg,
+                          String accuracy, String handling, String reload, String fireRate, String magazine,
+                          String redText) {
+        StringBuilder text = new StringBuilder();
+
+        text.append(score).append(", ");
+        text.append(lvl).append(", ");
+        text.append(name).append(", ");
+        text.append(type).append(", ");
+        text.append(dmg).append(", ");
+        text.append(accuracy).append(", ");
+        text.append(handling).append(", ");
+        text.append(reload).append(", ");
+        text.append(fireRate).append(", ");
+        text.append(magazine).append(", ");
+        text.append(redText).append(", ");
+
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
+    }
+    public void addArtifact(String score, String lvl, String name, String type, String dmg,
+                          String accuracy, String handling, String reload, String fireRate, String magazine,
+                          String redText) {
+        StringBuilder text = new StringBuilder();
+
+        text.append(score).append(", ");
+        text.append(lvl).append(", ");
+        text.append(name).append(", ");
+        text.append(type).append(", ");
+        text.append(dmg).append(", ");
+        text.append(accuracy).append(", ");
+        text.append(handling).append(", ");
+        text.append(reload).append(", ");
+        text.append(fireRate).append(", ");
+        text.append(magazine).append(", ");
+        text.append(redText).append(", ");
+
+        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+
+
 
     public void saveGear() {
         CSVManipulator manipulator = new CSVManipulator();
@@ -235,7 +387,6 @@ public class InventoryActivity extends AppCompatActivity {
 
         System.out.println("save gear called");
     }
-
 
 //    @Override
 //    public void getTexts(String name, String dmg, String accuracy, String handling, String reload, String fireRate, String mag) {
