@@ -83,7 +83,7 @@ public class CSVManipulator {
             FileOutputStream outputStream = new FileOutputStream(file);
             BufferedWriter buffWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
             CSVWriter writer = new CSVWriter(buffWriter);
-            Toast.makeText(context, "Saved to " + context.getFilesDir() + "/" + fileName, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "Saved to " + context.getFilesDir() + "/" + fileName, Toast.LENGTH_LONG).show();
 
             for (String[] str: data) {
                 writer.writeNext(str);

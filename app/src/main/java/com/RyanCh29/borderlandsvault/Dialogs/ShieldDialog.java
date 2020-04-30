@@ -55,10 +55,9 @@ public class ShieldDialog extends AppCompatDialogFragment {
                         String reload = reloadEditText.getText().toString();
                         String fireRate = fireEditText.getText().toString();
                         String magazine = magEditText.getText().toString();
-                        String redText = nameEditText.getText().toString();
                         //still need to add bonus stats and anointments to this and the layout
 
-                        listener.addShield(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine,redText);
+                        listener.addShield(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine);
                     }
                 });
 
@@ -90,7 +89,6 @@ public class ShieldDialog extends AppCompatDialogFragment {
 
     public interface ShieldDialogListener {
         void addShield(String score, String lvl, String name, String type, String dmg,
-                       String accuracy, String handling, String reload, String fireRate, String magazine,
-                       String redText);
+                       String accuracy, String handling, String reload, String fireRate, String magazine);
     }
 }

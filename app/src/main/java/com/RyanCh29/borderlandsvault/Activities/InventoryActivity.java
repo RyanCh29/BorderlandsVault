@@ -18,7 +18,6 @@ import com.RyanCh29.borderlandsvault.Dialogs.ClassModDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.GrenadeModDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.ShieldDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.WeaponDialog;
-import com.RyanCh29.borderlandsvault.Gear.Weapon;
 import com.RyanCh29.borderlandsvault.R;
 
 import java.util.ArrayList;
@@ -267,9 +266,34 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
     }
 
+    public void saveGear(final int id) {
+        //save gear on a new thread
+        Thread save = new Thread() {
+            public void run() {
+
+                CSVManipulator manipulator = new CSVManipulator();
+
+                if(id == 1) {
+                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_weapons.csv", weapons);
+                } else if(id == 2) {
+                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_shields.csv", shields);
+                } else if(id == 3) {
+                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", grenades);
+                } else if(id == 4) {
+                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", classMods);
+                } else if(id == 5) {
+                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv", artifacts);
+                }
+
+                System.out.println(id + " saved");
+            }
+        };
+
+        save.start();
+
+    }
     public void addWeapon(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine,
-                          String redText) {
+                          String accuracy, String handling, String reload, String fireRate, String magazine) {
         StringBuilder text = new StringBuilder();
 
         text.append(score).append(", ");
@@ -282,14 +306,21 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         text.append(reload).append(", ");
         text.append(fireRate).append(", ");
         text.append(magazine).append(", ");
-        text.append(redText).append(", ");
+
+        //saving gear
+        //add to list
+        String[] str = {score, lvl, name, "type", dmg, accuracy, handling, reload, fireRate, magazine,"anointment", "date", "favourite", "bonus 1"};
+        weapons.add(str);
+        //update content showing
+        showContent(weapons);
+        //call method to save
+        saveGear(1);
 
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
     public void addShield(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine,
-                          String redText) {
+                          String accuracy, String handling, String reload, String fireRate, String magazine) {
         StringBuilder text = new StringBuilder();
 
         text.append(score).append(", ");
@@ -302,14 +333,12 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         text.append(reload).append(", ");
         text.append(fireRate).append(", ");
         text.append(magazine).append(", ");
-        text.append(redText).append(", ");
 
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
     public void addGrenadeMod(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine,
-                          String redText) {
+                          String accuracy, String handling, String reload, String fireRate, String magazine) {
         StringBuilder text = new StringBuilder();
 
         text.append(score).append(", ");
@@ -322,14 +351,12 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         text.append(reload).append(", ");
         text.append(fireRate).append(", ");
         text.append(magazine).append(", ");
-        text.append(redText).append(", ");
 
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
     public void addClassMod(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine,
-                          String redText) {
+                          String accuracy, String handling, String reload, String fireRate, String magazine) {
         StringBuilder text = new StringBuilder();
 
         text.append(score).append(", ");
@@ -342,14 +369,13 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         text.append(reload).append(", ");
         text.append(fireRate).append(", ");
         text.append(magazine).append(", ");
-        text.append(redText).append(", ");
 
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
+
     public void addArtifact(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine,
-                          String redText) {
+                          String accuracy, String handling, String reload, String fireRate, String magazine) {
         StringBuilder text = new StringBuilder();
 
         text.append(score).append(", ");
@@ -362,39 +388,8 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         text.append(reload).append(", ");
         text.append(fireRate).append(", ");
         text.append(magazine).append(", ");
-        text.append(redText).append(", ");
 
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
-
-
-
-
-    public void saveGear() {
-        CSVManipulator manipulator = new CSVManipulator();
-//        List<String[]> things = new ArrayList<>();
-//        String[] str = new String[]{"1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"};
-//        things.add(str);
-//        things.add(str);
-//        things.add(str);
-//        System.out.println(things.get(0)[0]);
-//        manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_gear.csv", things);
-//        things = manipulator.CSVReadFile(getApplicationContext(), "Borderlands_User_CSV_gear.csv");
-//        showGear(things);
-
-
-
-        System.out.println("save gear called");
-    }
-
-//    @Override
-//    public void getTexts(String name, String dmg, String accuracy, String handling, String reload, String fireRate, String mag) {
-//        gear.add(new String[]{name, dmg, accuracy, handling, reload, fireRate, mag, "1", "1", "1", "1"});
-//        System.out.println("dialog finished");
-//        for(String[] str: gear) {
-//            System.out.println("new gear: " + str[0]);
-//        }
-//        showGear(gear);
-//    }
 }
