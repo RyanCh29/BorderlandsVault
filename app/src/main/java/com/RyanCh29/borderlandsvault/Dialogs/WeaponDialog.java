@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -20,12 +19,12 @@ public class WeaponDialog extends AppCompatDialogFragment {
     private EditText levelEditText;
     private EditText nameEditText;
     private EditText dmgEditText;
-    private EditText multiEditText;
     private EditText accEditText;
     private EditText handEditText;
     private EditText reloadEditText;
     private EditText fireEditText;
     private EditText magEditText;
+    private EditText elementEditText;
     WeaponDialogListener listener;
     @NonNull
     @Override
@@ -55,9 +54,10 @@ public class WeaponDialog extends AppCompatDialogFragment {
                         String reload = reloadEditText.getText().toString();
                         String fireRate = fireEditText.getText().toString();
                         String magazine = magEditText.getText().toString();
+                        String element = elementEditText.getText().toString();
                         //still need to add bonus stats and anointments to this and the layout
 
-                        listener.addWeapon(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine);
+                        listener.addWeapon(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine,element);
                     }
                 });
 
@@ -65,12 +65,13 @@ public class WeaponDialog extends AppCompatDialogFragment {
         scoreEditText= view.findViewById(R.id.itemScore_editText);
         levelEditText= view.findViewById(R.id.level_editText);
         nameEditText= view.findViewById(R.id.name_editText);
-        dmgEditText= view.findViewById(R.id.dmg_editText);
-        accEditText= view.findViewById(R.id.accuracy_editText);
-        handEditText= view.findViewById(R.id.handling_editText);
+        dmgEditText= view.findViewById(R.id.cap_editText);
+        accEditText= view.findViewById(R.id.delay_editText);
+        handEditText= view.findViewById(R.id.rate_editText);
         reloadEditText= view.findViewById(R.id.reload_editText);
         fireEditText= view.findViewById(R.id.fireRate_editText);
         magEditText= view.findViewById(R.id.magazineSize_editText);
+        elementEditText= view.findViewById(R.id.element_editText);
 
 
         return builder.create();
@@ -89,6 +90,6 @@ public class WeaponDialog extends AppCompatDialogFragment {
 
     public interface WeaponDialogListener {
         void addWeapon(String score, String lvl, String name, String type, String dmg,
-                       String accuracy, String handling, String reload, String fireRate, String magazine);
+                       String accuracy, String handling, String reload, String fireRate, String magazine, String element);
     }
 }

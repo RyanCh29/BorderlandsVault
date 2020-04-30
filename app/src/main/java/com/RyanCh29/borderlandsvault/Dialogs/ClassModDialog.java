@@ -19,13 +19,10 @@ public class ClassModDialog extends AppCompatDialogFragment {
     private EditText scoreEditText;
     private EditText levelEditText;
     private EditText nameEditText;
-    private EditText dmgEditText;
-    private EditText multiEditText;
-    private EditText accEditText;
-    private EditText handEditText;
-    private EditText reloadEditText;
-    private EditText fireEditText;
-    private EditText magEditText;
+    private EditText skill1EditText;
+    private EditText skill2EditText;
+    private EditText skill3EditText;
+
     ClassModDialog.ClassModDialogListener listener;
     @NonNull
     @Override
@@ -48,16 +45,12 @@ public class ClassModDialog extends AppCompatDialogFragment {
                         String score = scoreEditText.getText().toString();
                         String lvl = levelEditText.getText().toString();
                         String name = nameEditText.getText().toString();
-                        String type = nameEditText.getText().toString();
-                        String dmg = dmgEditText.getText().toString();
-                        String accuracy = accEditText.getText().toString();
-                        String handling = handEditText.getText().toString();
-                        String reload = reloadEditText.getText().toString();
-                        String fireRate = fireEditText.getText().toString();
-                        String magazine = magEditText.getText().toString();
+                        String skill1 = skill1EditText.getText().toString();
+                        String skill2 = skill2EditText.getText().toString();
+                        String skill3 = skill3EditText.getText().toString();
                         //still need to add bonus stats and anointments to this and the layout
 
-                        listener.addClassMod(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine);
+                        listener.addClassMod(score,lvl,name,skill1,skill2,skill3);
                     }
                 });
 
@@ -65,12 +58,9 @@ public class ClassModDialog extends AppCompatDialogFragment {
         scoreEditText= view.findViewById(R.id.itemScore_editText);
         levelEditText= view.findViewById(R.id.level_editText);
         nameEditText= view.findViewById(R.id.name_editText);
-        dmgEditText= view.findViewById(R.id.dmg_editText);
-        accEditText= view.findViewById(R.id.accuracy_editText);
-        handEditText= view.findViewById(R.id.handling_editText);
-        reloadEditText= view.findViewById(R.id.reload_editText);
-        fireEditText= view.findViewById(R.id.fireRate_editText);
-        magEditText= view.findViewById(R.id.magazineSize_editText);
+        skill1EditText= view.findViewById(R.id.skill1_editText);
+        skill2EditText= view.findViewById(R.id.skill2_editText);
+        skill3EditText= view.findViewById(R.id.skill3_editText);
 
 
         return builder.create();
@@ -88,7 +78,7 @@ public class ClassModDialog extends AppCompatDialogFragment {
     }
 
     public interface ClassModDialogListener {
-        void addClassMod(String score, String lvl, String name, String type, String dmg,
-                       String accuracy, String handling, String reload, String fireRate, String magazine);
+        void addClassMod(String score, String lvl, String name, String skill1,
+                         String skill2, String skill3);
     }
 }

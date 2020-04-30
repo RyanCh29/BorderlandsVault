@@ -38,12 +38,12 @@
         app:layout_constraintTop_toBottomOf="@+id/itemScore_editText" />
 
     <ImageView
-        android:id="@+id/itemType_imageView"
+        android:id="@+id/character_imageView"
         android:layout_width="141dp"
         android:layout_height="139dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/dmg_textView"
+        app:layout_constraintEnd_toStartOf="@+id/skill1_textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rarity_textView"
         app:srcCompat="@drawable/borderlands3logo" />
@@ -59,138 +59,71 @@
         app:layout_constraintTop_toBottomOf="@+id/name_editText" />
 
     <TextView
-        android:id="@+id/dmg_textView"
+        android:id="@+id/skill1_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
         android:text="Damage"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rarity_textView" />
+        app:layout_constraintTop_toTopOf="@+id/character_imageView" />
 
     <EditText
-        android:id="@+id/dmg_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/skill1_editText"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="dmg"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dmg_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/skill1_textView"
+        tools:layout_editor_absoluteX="167dp" />
 
     <TextView
-        android:id="@+id/accuracy_textView"
+        android:id="@+id/skill2_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
         android:text="Accuracy"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dmg_textView" />
+        app:layout_constraintStart_toEndOf="@+id/skill1_textView"
+        app:layout_constraintTop_toTopOf="@+id/skill1_textView" />
 
     <EditText
-        android:id="@+id/accuracy_editText"
+        android:id="@+id/skill2_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="acc"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dmg_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/skill2_textView"
+        tools:layout_editor_absoluteX="242dp" />
 
     <TextView
-        android:id="@+id/handling_textView"
+        android:id="@+id/skill3_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
         android:text="Handling"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accuracy_textView" />
+        app:layout_constraintStart_toEndOf="@+id/skill2_textView"
+        app:layout_constraintTop_toTopOf="@+id/skill2_textView" />
 
     <EditText
-        android:id="@+id/handling_editText"
+        android:id="@+id/skill3_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="hdl"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accuracy_editText" />
-
-    <TextView
-        android:id="@+id/reload_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Reload Time"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handling_textView" />
-
-    <EditText
-        android:id="@+id/reload_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="rld"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handling_editText" />
-
-    <TextView
-        android:id="@+id/fireRate_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Fire Rate"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reload_textView" />
-
-    <EditText
-        android:id="@+id/fireRate_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="fr"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reload_editText" />
-
-    <TextView
-        android:id="@+id/magazineSize_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Magazine Size"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireRate_textView" />
-
-    <EditText
-        android:id="@+id/magazineSize_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="mag"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireRate_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/skill3_textView"
+        tools:layout_editor_absoluteX="323dp" />
 
     <TextView
         android:id="@+id/redText_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Red Text (autofill based on name)"
-        app:layout_constraintTop_toBottomOf="@+id/magazineSize_textView"
-        tools:layout_editor_absoluteX="41dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

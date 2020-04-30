@@ -38,12 +38,12 @@
         app:layout_constraintTop_toBottomOf="@+id/itemScore_editText" />
 
     <ImageView
-        android:id="@+id/itemType_imageView"
+        android:id="@+id/character_imageView"
         android:layout_width="141dp"
         android:layout_height="139dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/dmg_textView"
+        app:layout_constraintEnd_toStartOf="@+id/cap_textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rarity_textView"
         app:srcCompat="@drawable/borderlands3logo" />
@@ -59,138 +59,88 @@
         app:layout_constraintTop_toBottomOf="@+id/name_editText" />
 
     <TextView
-        android:id="@+id/dmg_textView"
+        android:id="@+id/cap_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
-        android:text="Damage"
+        android:text="Capacity"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rarity_textView" />
 
     <EditText
-        android:id="@+id/dmg_editText"
+        android:id="@+id/cap_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="dmg"
+        android:hint="cap"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dmg_textView" />
+        app:layout_constraintTop_toTopOf="@+id/cap_textView" />
 
     <TextView
-        android:id="@+id/accuracy_textView"
+        android:id="@+id/delay_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
-        android:text="Accuracy"
+        android:text="Recharge Delay"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dmg_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/cap_textView" />
 
     <EditText
-        android:id="@+id/accuracy_editText"
+        android:id="@+id/delay_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="acc"
+        android:hint="delay"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dmg_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/cap_editText" />
 
     <TextView
-        android:id="@+id/handling_textView"
+        android:id="@+id/rate_textView"
         android:layout_width="78dp"
         android:layout_height="45dp"
-        android:text="Handling"
+        android:text="Recharge Rate"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accuracy_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/delay_textView" />
 
     <EditText
-        android:id="@+id/handling_editText"
+        android:id="@+id/rate_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="hdl"
+        android:hint="rate"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accuracy_editText" />
-
-    <TextView
-        android:id="@+id/reload_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Reload Time"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handling_textView" />
-
-    <EditText
-        android:id="@+id/reload_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="rld"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handling_editText" />
-
-    <TextView
-        android:id="@+id/fireRate_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Fire Rate"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reload_textView" />
-
-    <EditText
-        android:id="@+id/fireRate_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="fr"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reload_editText" />
-
-    <TextView
-        android:id="@+id/magazineSize_textView"
-        android:layout_width="78dp"
-        android:layout_height="45dp"
-        android:text="Magazine Size"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireRate_textView" />
-
-    <EditText
-        android:id="@+id/magazineSize_editText"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="mag"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fireRate_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/delay_editText" />
 
     <TextView
         android:id="@+id/redText_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Red Text (autofill based on name)"
-        app:layout_constraintTop_toBottomOf="@+id/magazineSize_textView"
-        tools:layout_editor_absoluteX="41dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/element_editText" />
+
+    <EditText
+        android:id="@+id/element_editText"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="element"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemType_imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

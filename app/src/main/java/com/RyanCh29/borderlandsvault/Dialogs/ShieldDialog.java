@@ -19,13 +19,10 @@ public class ShieldDialog extends AppCompatDialogFragment {
     private EditText scoreEditText;
     private EditText levelEditText;
     private EditText nameEditText;
-    private EditText dmgEditText;
-    private EditText multiEditText;
-    private EditText accEditText;
-    private EditText handEditText;
-    private EditText reloadEditText;
-    private EditText fireEditText;
-    private EditText magEditText;
+    private EditText capEditText;
+    private EditText delayEditText;
+    private EditText rateEditText;
+    private EditText elementEditText;
     ShieldDialog.ShieldDialogListener listener;
     @NonNull
     @Override
@@ -48,16 +45,13 @@ public class ShieldDialog extends AppCompatDialogFragment {
                         String score = scoreEditText.getText().toString();
                         String lvl = levelEditText.getText().toString();
                         String name = nameEditText.getText().toString();
-                        String type = nameEditText.getText().toString();
-                        String dmg = dmgEditText.getText().toString();
-                        String accuracy = accEditText.getText().toString();
-                        String handling = handEditText.getText().toString();
-                        String reload = reloadEditText.getText().toString();
-                        String fireRate = fireEditText.getText().toString();
-                        String magazine = magEditText.getText().toString();
+                        String cap = capEditText.getText().toString();
+                        String delay = delayEditText.getText().toString();
+                        String rate = rateEditText.getText().toString();
+                        String element = elementEditText.getText().toString();
                         //still need to add bonus stats and anointments to this and the layout
 
-                        listener.addShield(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine);
+                        listener.addShield(score,lvl,name,cap,delay,rate,element);
                     }
                 });
 
@@ -65,12 +59,10 @@ public class ShieldDialog extends AppCompatDialogFragment {
         scoreEditText= view.findViewById(R.id.itemScore_editText);
         levelEditText= view.findViewById(R.id.level_editText);
         nameEditText= view.findViewById(R.id.name_editText);
-        dmgEditText= view.findViewById(R.id.dmg_editText);
-        accEditText= view.findViewById(R.id.accuracy_editText);
-        handEditText= view.findViewById(R.id.handling_editText);
-        reloadEditText= view.findViewById(R.id.reload_editText);
-        fireEditText= view.findViewById(R.id.fireRate_editText);
-        magEditText= view.findViewById(R.id.magazineSize_editText);
+        capEditText= view.findViewById(R.id.cap_editText);
+        delayEditText= view.findViewById(R.id.delay_editText);
+        rateEditText= view.findViewById(R.id.rate_editText);
+        elementEditText= view.findViewById(R.id.element_editText);
 
 
         return builder.create();
@@ -88,7 +80,7 @@ public class ShieldDialog extends AppCompatDialogFragment {
     }
 
     public interface ShieldDialogListener {
-        void addShield(String score, String lvl, String name, String type, String dmg,
-                       String accuracy, String handling, String reload, String fireRate, String magazine);
+        void addShield(String score, String lvl, String name, String cap,
+                       String rechargeDelay, String rechargeRate, String element);
     }
 }
