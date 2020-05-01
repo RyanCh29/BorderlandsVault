@@ -75,8 +75,8 @@
         android:ems="10"
         android:hint="dmg"
         android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/skill1_textView"
-        tools:layout_editor_absoluteX="167dp" />
+        app:layout_constraintStart_toStartOf="@+id/skill1_textView"
+        app:layout_constraintTop_toBottomOf="@+id/skill1_textView" />
 
     <TextView
         android:id="@+id/skill2_textView"
@@ -91,11 +91,12 @@
         android:id="@+id/skill2_editText"
         android:layout_width="81dp"
         android:layout_height="45dp"
+        android:layout_marginStart="1dp"
         android:ems="10"
         android:hint="acc"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/skill2_textView"
-        tools:layout_editor_absoluteX="242dp" />
+        app:layout_constraintStart_toEndOf="@+id/skill1_editText"
+        app:layout_constraintTop_toBottomOf="@+id/skill2_textView" />
 
     <TextView
         android:id="@+id/skill3_textView"
@@ -113,8 +114,8 @@
         android:ems="10"
         android:hint="hdl"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/skill3_textView"
-        tools:layout_editor_absoluteX="323dp" />
+        app:layout_constraintStart_toEndOf="@+id/skill2_editText"
+        app:layout_constraintTop_toBottomOf="@+id/skill3_textView" />
 
     <TextView
         android:id="@+id/redText_textView"

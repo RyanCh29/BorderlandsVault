@@ -198,12 +198,12 @@
         android:id="@+id/element_editText"
         android:layout_width="93dp"
         android:layout_height="46dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="element"
         android:inputType="textPersonName"
-        android:text="element"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemType_imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/character_imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -349,7 +349,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
         //saving gear
         //add to list
-        String[] str = {score, lvl, name, "shield", cap, rechargeDelay, rechargeRate, "element", "anointment", "date", "favourite", "bonus 1"};
+        String[] str = {score, lvl, name, "shield", cap, rechargeDelay, rechargeRate, element, "anointment", "date", "favourite", "bonus 1"};
         shields.add(str);
         all.add(str);
 
@@ -379,7 +379,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
         //saving gear
         //add to list
-        String[] str = {score, lvl, name, "grenade mod", dmg, radius, "element", "anointment", "date", "favourite", "bonus 1"};
+        String[] str = {score, lvl, name, "grenade mod", dmg, radius, element, "anointment", "date", "favourite", "bonus 1"};
         grenades.add(str);
         all.add(str);
 
