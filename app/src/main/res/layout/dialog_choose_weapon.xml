@@ -8,48 +8,56 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/weapon_button"
+        android:id="@+id/ar_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/weapon"
+        android:text="@string/ar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/shield_button"
+        android:id="@+id/launcher_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/shield"
+        android:text="@string/launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weapon_button" />
+        app:layout_constraintTop_toBottomOf="@+id/ar_button" />
 
     <Button
-        android:id="@+id/grenadeMod_button"
+        android:id="@+id/pistol_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/grenade"
+        android:text="@string/pistol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shield_button" />
+        app:layout_constraintTop_toBottomOf="@+id/launcher_button" />
 
     <Button
-        android:id="@+id/classMod_button"
+        android:id="@+id/shotgun_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/class_mod"
+        android:text="@string/shotgun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grenadeMod_button" />
+        app:layout_constraintTop_toBottomOf="@+id/pistol_button" />
 
     <Button
-        android:id="@+id/artifact_button"
+        android:id="@+id/sniper_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/artifact"
+        android:text="@string/sniper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classMod_button" />
+        app:layout_constraintTop_toBottomOf="@+id/shotgun_button" />
+    <Button
+        android:id="@+id/smg_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/smg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sniper_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

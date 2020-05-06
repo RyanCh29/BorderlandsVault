@@ -2,11 +2,10 @@ package com.RyanCh29.borderlandsvault.Dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,63 +14,53 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.RyanCh29.borderlandsvault.R;
 
 public class WeaponDialog extends AppCompatDialogFragment {
-    private EditText scoreEditText;
-    private EditText levelEditText;
-    private EditText nameEditText;
-    private EditText dmgEditText;
-    private EditText accEditText;
-    private EditText handEditText;
-    private EditText reloadEditText;
-    private EditText fireEditText;
-    private EditText magEditText;
-    private EditText elementEditText;
     WeaponDialogListener listener;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_add_weapon, null);
+        View view = inflater.inflate(R.layout.dialog_choose_weapon, null);
 
         builder.setView(view)
-//                .setTitle("Choose Gear to Add")
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                .setTitle("Choose Type");
 
-                    }
-                })
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String score = scoreEditText.getText().toString();
-                        String lvl = levelEditText.getText().toString();
-                        String name = nameEditText.getText().toString();
-                        String type = nameEditText.getText().toString();
-                        String dmg = dmgEditText.getText().toString();
-                        String accuracy = accEditText.getText().toString();
-                        String handling = handEditText.getText().toString();
-                        String reload = reloadEditText.getText().toString();
-                        String fireRate = fireEditText.getText().toString();
-                        String magazine = magEditText.getText().toString();
-                        String element = elementEditText.getText().toString();
-                        //still need to add bonus stats and anointments to this and the layout
-
-                        listener.addWeapon(score,lvl,name,type,dmg,accuracy,handling,reload,fireRate,magazine,element);
-                    }
-                });
-
-        //setup EditText areas
-        scoreEditText= view.findViewById(R.id.itemScore_editText);
-        levelEditText= view.findViewById(R.id.level_editText);
-        nameEditText= view.findViewById(R.id.name_editText);
-        dmgEditText= view.findViewById(R.id.cap_editText);
-        accEditText= view.findViewById(R.id.delay_editText);
-        handEditText= view.findViewById(R.id.rate_editText);
-        reloadEditText= view.findViewById(R.id.reload_editText);
-        fireEditText= view.findViewById(R.id.fireRate_editText);
-        magEditText= view.findViewById(R.id.magazineSize_editText);
-        elementEditText= view.findViewById(R.id.element_editText);
+        Button ar = view.findViewById(R.id.ar_button);
+        ar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(11);
+            }
+        });
+        Button launcher = view.findViewById(R.id.launcher_button);
+        launcher.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(22);
+            }
+        });
+        Button pistol = view.findViewById(R.id.pistol_button);
+        pistol.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(33);
+            }
+        });
+        Button shotgun = view.findViewById(R.id.shotgun_button);
+        shotgun.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(44);
+            }
+        });
+        Button sniper = view.findViewById(R.id.sniper_button);
+        sniper.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(55);
+            }
+        });
+        Button smg = view.findViewById(R.id.smg_button);
+        smg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice(66);
+            }
+        });
 
 
         return builder.create();
@@ -89,7 +78,6 @@ public class WeaponDialog extends AppCompatDialogFragment {
     }
 
     public interface WeaponDialogListener {
-        void addWeapon(String score, String lvl, String name, String type, String dmg,
-                       String accuracy, String handling, String reload, String fireRate, String magazine, String element);
+        void getChoice(int c);
     }
 }

@@ -24,7 +24,7 @@ public class ChoiceDialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_choose_gear, null);
 
         builder.setView(view)
-                .setTitle("Choose Gear to Add");
+                .setTitle("Choose Type");
 
         Button weapon = view.findViewById(R.id.weapon_button);
         weapon.setOnClickListener(new View.OnClickListener() {

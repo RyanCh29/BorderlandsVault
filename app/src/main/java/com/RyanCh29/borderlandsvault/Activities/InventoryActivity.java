@@ -12,23 +12,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
-import com.RyanCh29.borderlandsvault.Dialogs.ArtifactDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.ChoiceDialog;
-import com.RyanCh29.borderlandsvault.Dialogs.ClassModDialog;
-import com.RyanCh29.borderlandsvault.Dialogs.GrenadeModDialog;
-import com.RyanCh29.borderlandsvault.Dialogs.ShieldDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.WeaponDialog;
+import com.RyanCh29.borderlandsvault.Inventory.AddItemActivity;
+import com.RyanCh29.borderlandsvault.Inventory.DisplayItemActivity;
 import com.RyanCh29.borderlandsvault.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity implements ChoiceDialog.ChoiceDialogListener,
-        WeaponDialog.WeaponDialogListener,
-        ShieldDialog.ShieldDialogListener,
-        GrenadeModDialog.GrenadeModDialogListener,
-        ClassModDialog.ClassModDialogListener,
-        ArtifactDialog.ArtifactDialogListener {
+        WeaponDialog.WeaponDialogListener {
     private List<String[]> all; //0
     private List<String[]> weapons; //1
     private List<String[]> shields; //2
@@ -128,6 +122,10 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                     buttons[i].setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             //TODO: improve onClick functionality to better display the info
+                            Intent intent = new Intent(getBaseContext(), DisplayItemActivity.class);
+                            intent.putExtra("Content",content.get(finalI));
+                            startActivity(intent);
+
                             makeToast(content.get(finalI));
                         }
                     });
@@ -223,12 +221,13 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
 
     public void addGear(View view) {
-        //open dialog to pick what type of gear to add
-        //get choice from dialog and open new dialog to input the info
-        //get info and send it back to the activity
-        openDialog(choice); // choice dialog
-        System.out.println("first dialog");
 
+        //open choice dialog
+        //user chooses item type
+        //new activity is created where the info is entered
+        //info is sent back to inventory activity
+
+        openDialog(choice); // choice dialog
         choice = 0; // reset choice
     }
 
@@ -236,33 +235,78 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
     public void openDialog(int c) {
 
         if(c == 0) {
-            ChoiceDialog choice = new ChoiceDialog();
-            choice.show(getSupportFragmentManager(),"choice dialog");
+            ChoiceDialog choiceDialog = new ChoiceDialog();
+            choiceDialog.show(getSupportFragmentManager(),"choice dialog");
         } else if(c == 1) {
             WeaponDialog weaponDialog = new WeaponDialog();
             weaponDialog.show(getSupportFragmentManager(),"weapon dialog");
-        } else if(c == 2) {
-            ShieldDialog ShieldDialog = new ShieldDialog();
-            ShieldDialog.show(getSupportFragmentManager(),"Shield dialog");
-        } else if(c == 3) {
-            GrenadeModDialog GrenadeModDialog = new GrenadeModDialog();
-            GrenadeModDialog.show(getSupportFragmentManager(),"GrenadeMod dialog");
-        } else if(c == 4) {
-            ClassModDialog ClassModDialog = new ClassModDialog();
-            ClassModDialog.show(getSupportFragmentManager(),"ClassMod dialog");
-        } else if(c == 5) {
-            ArtifactDialog ArtifactDialog = new ArtifactDialog();
-            ArtifactDialog.show(getSupportFragmentManager(),"Artifact dialog");
         }
 
     }
 
     public void getChoice(int c) {
         choice = c;
-        System.out.println(c);
-        //open new dialog
-        openDialog(choice); // adding gear dialog
-        System.out.println("second dialog");
+
+        //if choice is 1 open weapon dialog
+        if(choice == 1) {
+            openDialog(1);
+        }
+        //else open the activity
+        else if(choice == 2) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","shield");
+            startActivity(intent);
+        }
+        else if(choice == 3) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","grenade mod");
+            startActivity(intent);
+        }
+        else if(choice == 4) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","class mod");
+            startActivity(intent);
+        }
+        else if(choice == 5) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","artifact");
+            startActivity(intent);
+        }
+        else if(choice > 5) {
+            if(choice == 11) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","ar");
+                startActivity(intent);
+            }
+            else if(choice == 22) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","launcher");
+                startActivity(intent);
+            }
+            else if(choice == 33) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","pistol");
+                startActivity(intent);
+            }
+            else if(choice == 44) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","shotgun");
+                startActivity(intent);
+            }
+            else if(choice == 55) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","sniper");
+                startActivity(intent);
+            }
+            else if(choice == 66) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","smg");
+                startActivity(intent);
+            }
+        }
+
+        //from weapon dialog
+
 
     }
 

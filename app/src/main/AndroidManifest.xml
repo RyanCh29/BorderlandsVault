@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Inventory.AddItemActivity"></activity>
+        <activity
+            android:name=".Inventory.DisplayItemActivity"
+            android:parentActivityName=".Activities.InventoryActivity" />
         <activity
             android:name=".Activities.SkillActivity"
             android:parentActivityName=".Activities.MainActivity" />
