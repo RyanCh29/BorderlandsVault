@@ -1,7 +1,6 @@
 package com.RyanCh29.borderlandsvault.CSV;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -11,10 +10,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -89,6 +86,30 @@ public class CSVManipulator {
                 writer.writeNext(str);
 
             }
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void CSVAppend(Context context, String fileName, String[] data) {
+        try {
+            //check if file exists, if not create it before writing
+//            System.out.println(context.getFilesDir()+"/Borderlands_User_CSV_gear.csv");
+            File file = new File(context.getFilesDir()+"/" + fileName);
+
+            if(!file.exists()) {
+                //create file
+                file.createNewFile();
+            }
+            FileOutputStream outputStream = new FileOutputStream(file, true);
+            BufferedWriter buffWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
+            CSVWriter writer = new CSVWriter(buffWriter);
+
+            writer.writeNext(data);
+
+
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
