@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.RyanCh29.borderlandsvault.R;
 
 public class AddItemActivity extends AppCompatActivity {
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,6 @@ public class AddItemActivity extends AppCompatActivity {
 
         ImageView image = findViewById(R.id.imageView);
 
-        String type;
         //check if the intent has any extras, if extras are sent the gear is supposed to be displayed
         Bundle extras = getIntent().getExtras();
         if(extras !=null)
@@ -54,6 +54,26 @@ public class AddItemActivity extends AppCompatActivity {
             image.setImageResource(R.drawable.weapon_smg);
             setContentView(R.layout.activity_add_weapon);
 
+        }else if(type.equals("shield")) {
+            image.setImageResource(R.drawable.weapon_smg);
+            //TODO: complete activity_add_shield layout
+            setContentView(R.layout.activity_add_shield);
+
+        }else if(type.equals("grenade mod")) {
+            image.setImageResource(R.drawable.weapon_smg);
+            //TODO: complete activity_add_grenade_mod layout
+            setContentView(R.layout.activity_add_grenade_mod);
+
+        }else if(type.equals("class mod")) {
+            image.setImageResource(R.drawable.weapon_smg);
+            //TODO: complete activity_add_class_mod layout
+            setContentView(R.layout.activity_add_class_mod);
+
+        }else if(type.equals("artifact")) {
+            image.setImageResource(R.drawable.weapon_smg);
+            //TODO: complete activity_add_artifact layout
+            setContentView(R.layout.activity_add_artifact);
+
         }
 
 
@@ -62,5 +82,6 @@ public class AddItemActivity extends AppCompatActivity {
 
     public void saveGear(View view) {
         //append the gear to the file
+        //check type variable for the proper file
     }
 }

@@ -221,12 +221,10 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
 
     public void addGear(View view) {
-
         //open choice dialog
         //user chooses item type
         //new activity is created where the info is entered
         //info is sent back to inventory activity
-
         openDialog(choice); // choice dialog
         choice = 0; // reset choice
     }
@@ -304,10 +302,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                 startActivity(intent);
             }
         }
-
-        //from weapon dialog
-
-
     }
 
     public void saveGear(final int id) {
