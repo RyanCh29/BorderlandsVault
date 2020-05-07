@@ -39,6 +39,16 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
+        readFiles();
+
+        choice = 0;
+        //set default output to all items
+        currentContent = 0;
+        changeBanner("All Legendaries");
+        showContent(all);
+    }
+
+    public void readFiles() {
         CSVManipulator csvManipulator = new CSVManipulator();
 
         //read user files
@@ -54,12 +64,18 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         all.addAll(grenades);
         all.addAll(classMods);
         all.addAll(artifacts);
+    }
 
-        choice = 0;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        readFiles();
         //set default output to all items
         currentContent = 0;
         changeBanner("All Legendaries");
         showContent(all);
+
+
     }
 
     public void startMainActivity(View view) {
@@ -224,7 +240,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         //open choice dialog
         //user chooses item type
         //new activity is created where the info is entered
-        //info is sent back to inventory activity
         openDialog(choice); // choice dialog
         choice = 0; // reset choice
     }
@@ -330,43 +345,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         save.start();
 
     }
-    public void addWeapon(String score, String lvl, String name, String type, String dmg,
-                          String accuracy, String handling, String reload, String fireRate, String magazine, String element) {
-        StringBuilder text = new StringBuilder();
 
-        text.append(score).append(", ");
-        text.append(lvl).append(", ");
-        text.append(name).append(", ");
-        text.append(type).append(", ");
-
-        text.append(dmg).append(", ");
-        text.append(accuracy).append(", ");
-        text.append(handling).append(", ");
-        text.append(reload).append(", ");
-        text.append(fireRate).append(", ");
-        text.append(magazine).append(", ");
-        text.append(element).append(", ");
-
-//        text.append(anoint).append(", ");
-//        text.append(date).append(", ");
-//        text.append(fav).append(", ");
-//        text.append(bonuses).append(", ");
-
-
-        //saving gear
-        //add to list
-        String[] str = {score, lvl, name, "type", dmg, accuracy, handling, reload, fireRate, magazine, element, "anointment", "date", "favourite", "bonus 1"};
-        weapons.add(str);
-        all.add(str);
-
-        //update content showing
-        showContent(weapons);
-        //call method to save
-        saveGear(1);
-
-        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
-        toast.show();
-    }
     public void addShield(String score, String lvl, String name, String cap,
                           String rechargeDelay, String rechargeRate, String element) {
         StringBuilder text = new StringBuilder();

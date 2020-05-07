@@ -91,7 +91,8 @@ public class AddItemActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 saveGear();
-                //return to last activity
+                //return to InventoryActivity
+                //TODO: get content to update when returning to InventoryActivity
                 finish();
             }
         });
@@ -99,13 +100,10 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     public void saveGear() {
-        String[] str;
         //get date
-        Date dateobj = new Date();
-        String date = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(dateobj);
-//        System.out.println(date + "=====================================================================================================================");
+        String date = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(new Date());
 
-        //set universal views
+        //set universal views (views that are present in all gear types)
         EditText score_edit = findViewById(R.id.score_editText);
         EditText lvl_edit = findViewById(R.id.level_editText);
         EditText name_edit = findViewById(R.id.name_editText);
@@ -113,75 +111,198 @@ public class AddItemActivity extends AppCompatActivity {
         String score = score_edit.getText().toString();
         String lvl = lvl_edit.getText().toString();
         String name = name_edit.getText().toString();
-//        String type;
-
-
-        EditText anoint_edit = findViewById(R.id.anoint_editText);
-        String anoint = anoint_edit.getText().toString();
 
         //TODO: figure out how to implement multiple bonus stats
-        String bonuses;
+        //idea: have button that adds EditTexts to a scroll view, when save is pressed all bonus stats are recorded
+        String[] bonuses;
+
+        CSVManipulator csv = new CSVManipulator();
 
         //append the gear to the file
         //check type variable for the proper file
 
         if(type.equals("ar") || type.equals("launcher") || type.equals("pistol") || type.equals("shotgun") || type.equals("sniper") || type.equals("smg")) {
-
-            //TODO: add checks for empty inputs
-
-            //get data from editTexts
-            EditText dmg_edit = findViewById(R.id.dmg_editText);
-            String dmg = dmg_edit.getText().toString();
-
-            EditText acc_edit = findViewById(R.id.acc_editText);
-            String accuracy = acc_edit.getText().toString();
-
-            EditText hand_edit = findViewById(R.id.hand_editText);
-            String handling = hand_edit.getText().toString();
-
-            EditText reload_edit = findViewById(R.id.reload_editText);
-            String reload = reload_edit.getText().toString();
-
-            EditText fr_edit = findViewById(R.id.fr_editText);
-            String fireRate = fr_edit.getText().toString();
-
-            EditText mag_edit = findViewById(R.id.mag_editText);
-            String magazine = mag_edit.getText().toString();
-
-            EditText element_edit = findViewById(R.id.element_editText);
-            String element = element_edit.getText().toString();
-
-            //add everything to string array
-            str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
-
-            //append to file
-            CSVManipulator csv = new CSVManipulator();
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_weapons.csv", str);
-
+            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_weapons.csv", saveWeapon(date, score, lvl, name));
 
         } else if(type.equals("shield")) {
-            //TODO: complete activity_add_shield layout
-            setContentView(R.layout.activity_add_shield);
-//            image.setImageResource(R.drawable.gear_shield);
+            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_shields.csv", saveShield(date, score, lvl, name));
 
         }else if(type.equals("grenade mod")) {
-            //TODO: complete activity_add_grenade_mod layout
-            setContentView(R.layout.activity_add_grenade_mod);
-//            image.setImageResource(R.drawable.gear_grenade_mod);
+            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name));
 
         }else if(type.equals("class mod")) {
-            //TODO: complete activity_add_class_mod layout
-            setContentView(R.layout.activity_add_class_mod);
-//            image.setImageResource(R.drawable.gear_class_mod);
+            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name));
 
         }else if(type.equals("artifact")) {
-            //TODO: complete activity_add_artifact layout
-            setContentView(R.layout.activity_add_artifact);
-//            image.setImageResource(R.drawable.gear_artifact);
+            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_artifacts.csv", saveArtifact(date, score, lvl, name));
 
         }
 
+    }
+
+
+    public String[] saveWeapon(String date, String score, String lvl, String name) {
+        //TODO: add checks for empty inputs
+
+        //get data from editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        String dmg = dmg_edit.getText().toString();
+
+        EditText acc_edit = findViewById(R.id.acc_editText);
+        String accuracy = acc_edit.getText().toString();
+
+        EditText hand_edit = findViewById(R.id.hand_editText);
+        String handling = hand_edit.getText().toString();
+
+        EditText reload_edit = findViewById(R.id.reload_editText);
+        String reload = reload_edit.getText().toString();
+
+        EditText fr_edit = findViewById(R.id.fr_editText);
+        String fireRate = fr_edit.getText().toString();
+
+        EditText mag_edit = findViewById(R.id.mag_editText);
+        String magazine = mag_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        String element = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        String anoint = anoint_edit.getText().toString();
+
+        //add everything to string array
+        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        return str;
+    }
+    public String[] saveShield(String date, String score, String lvl, String name) {
+        //TODO: add checks for empty inputs
+
+        //get data from editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        String dmg = dmg_edit.getText().toString();
+
+        EditText acc_edit = findViewById(R.id.acc_editText);
+        String accuracy = acc_edit.getText().toString();
+
+        EditText hand_edit = findViewById(R.id.hand_editText);
+        String handling = hand_edit.getText().toString();
+
+        EditText reload_edit = findViewById(R.id.reload_editText);
+        String reload = reload_edit.getText().toString();
+
+        EditText fr_edit = findViewById(R.id.fr_editText);
+        String fireRate = fr_edit.getText().toString();
+
+        EditText mag_edit = findViewById(R.id.mag_editText);
+        String magazine = mag_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        String element = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        String anoint = anoint_edit.getText().toString();
+
+        //add everything to string array
+        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        return str;
+    }
+    public String[] saveGrenadeMod(String date, String score, String lvl, String name) {
+        //TODO: add checks for empty inputs
+
+        //get data from editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        String dmg = dmg_edit.getText().toString();
+
+        EditText acc_edit = findViewById(R.id.acc_editText);
+        String accuracy = acc_edit.getText().toString();
+
+        EditText hand_edit = findViewById(R.id.hand_editText);
+        String handling = hand_edit.getText().toString();
+
+        EditText reload_edit = findViewById(R.id.reload_editText);
+        String reload = reload_edit.getText().toString();
+
+        EditText fr_edit = findViewById(R.id.fr_editText);
+        String fireRate = fr_edit.getText().toString();
+
+        EditText mag_edit = findViewById(R.id.mag_editText);
+        String magazine = mag_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        String element = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        String anoint = anoint_edit.getText().toString();
+
+        //add everything to string array
+        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        return str;
 
 
     }
+    public String[] saveClassMod(String date, String score, String lvl, String name) {
+        //TODO: add checks for empty inputs
+
+        //get data from editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        String dmg = dmg_edit.getText().toString();
+
+        EditText acc_edit = findViewById(R.id.acc_editText);
+        String accuracy = acc_edit.getText().toString();
+
+        EditText hand_edit = findViewById(R.id.hand_editText);
+        String handling = hand_edit.getText().toString();
+
+        EditText reload_edit = findViewById(R.id.reload_editText);
+        String reload = reload_edit.getText().toString();
+
+        EditText fr_edit = findViewById(R.id.fr_editText);
+        String fireRate = fr_edit.getText().toString();
+
+        EditText mag_edit = findViewById(R.id.mag_editText);
+        String magazine = mag_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        String element = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        String anoint = anoint_edit.getText().toString();
+
+        //add everything to string array
+        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        return str;
+    }
+    public String[] saveArtifact(String date, String score, String lvl, String name) {
+        //TODO: add checks for empty inputs
+
+        //get data from editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        String dmg = dmg_edit.getText().toString();
+
+        EditText acc_edit = findViewById(R.id.acc_editText);
+        String accuracy = acc_edit.getText().toString();
+
+        EditText hand_edit = findViewById(R.id.hand_editText);
+        String handling = hand_edit.getText().toString();
+
+        EditText reload_edit = findViewById(R.id.reload_editText);
+        String reload = reload_edit.getText().toString();
+
+        EditText fr_edit = findViewById(R.id.fr_editText);
+        String fireRate = fr_edit.getText().toString();
+
+        EditText mag_edit = findViewById(R.id.mag_editText);
+        String magazine = mag_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        String element = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        String anoint = anoint_edit.getText().toString();
+
+        //add everything to string array
+        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        return str;
+    }
+
+
 }

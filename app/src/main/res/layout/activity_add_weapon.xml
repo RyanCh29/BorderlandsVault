@@ -64,6 +64,8 @@
             android:hint="Score"
             android:inputType="number"
             android:maxLength="3"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             app:layout_constraintBottom_toTopOf="@id/top_bar_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/imageView" />
 
@@ -77,6 +79,8 @@
             android:hint="lvl"
             android:inputType="none|number"
             android:maxLength="2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             app:layout_constraintBottom_toTopOf="@id/top_bar_guidelineH"
             app:layout_constraintStart_toStartOf="@id/input_right_guidelineV" />
 
@@ -91,8 +95,9 @@
             android:hint="Name"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColor="#d49e51"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_bar_guidelineH" />
@@ -136,6 +141,8 @@
             android:hint="damage"
             android:inputType="textPersonName"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/dmg_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
         <!--ACCURACY-->
@@ -162,8 +169,11 @@
             android:background="@null"
             android:ems="4"
             android:hint="accuracy"
-            android:inputType="textPersonName"
+            android:inputType="number"
+            android:maxLength="3"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/acc_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
         <!--HANDLING-->
@@ -190,8 +200,11 @@
             android:background="@null"
             android:ems="4"
             android:hint="handling"
-            android:inputType="textPersonName"
+            android:inputType="number"
+            android:maxLength="3"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/hand_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
         <!--RELOAD-->
@@ -219,7 +232,10 @@
             android:ems="4"
             android:hint="reload"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/reload_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
         <!--FIRE RATE-->
@@ -246,8 +262,11 @@
             android:background="@null"
             android:ems="4"
             android:hint="rate"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/fr_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
         <!--MAGAZINE-->
@@ -274,8 +293,11 @@
             android:background="@null"
             android:ems="4"
             android:hint="size"
-            android:inputType="textPersonName"
+            android:inputType="number"
+            android:maxLength="3"
             android:textSize="14sp"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
             app:layout_constraintBottom_toTopOf="@+id/mag_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
 
@@ -289,6 +311,8 @@
             android:ems="5"
             android:hint="element"
             android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/reload_guidelineH" />
 
@@ -320,7 +344,9 @@
                     android:ems="10"
                     android:background="@null"
                     android:inputType="textPersonName"
-                    android:hint="bonus stat" />
+                    android:hint="bonus stat"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"/>
             </LinearLayout>
         </ScrollView>
 
@@ -343,6 +369,8 @@
             android:hint="Anoinment"
             android:background="@null"
             android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             app:layout_constraintStart_toStartOf="@+id/image_left_guideline"
             app:layout_constraintTop_toBottomOf="@id/anoint_guidelineH" />
 
