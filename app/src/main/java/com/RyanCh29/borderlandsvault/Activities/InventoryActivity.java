@@ -68,6 +68,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
     @Override
     protected void onResume() {
+        //allows for lists to be updated after adding an item
         super.onResume();
         readFiles();
         //set default output to all items
@@ -104,7 +105,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
     }
 
     public void showContent(final List<String[]> content) {
-
         //clear existing
         TableLayout layout = findViewById(R.id.table);
         layout.removeAllViews();

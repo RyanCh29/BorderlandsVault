@@ -2,11 +2,15 @@ package com.RyanCh29.borderlandsvault.Inventory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
 import com.RyanCh29.borderlandsvault.R;
@@ -14,9 +18,13 @@ import com.RyanCh29.borderlandsvault.R;
 import java.text.DateFormat;
 import java.util.Date;
 
+import static android.text.InputType.TYPE_CLASS_TEXT;
+
 public class AddItemActivity extends AppCompatActivity {
     private String type;
     private Button saveButton;
+    private Button addBonusButton;
+    private int numBonus = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +105,13 @@ public class AddItemActivity extends AppCompatActivity {
             }
         });
 
+        addBonusButton = findViewById(R.id.add_bonus_button);
+        addBonusButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addBonusStat();
+            }
+        });
+
     }
 
     public void saveGear() {
@@ -144,33 +159,52 @@ public class AddItemActivity extends AppCompatActivity {
     public String[] saveWeapon(String date, String score, String lvl, String name) {
         //TODO: add checks for empty inputs
 
+        String[] str = new String[13+numBonus];
+
+        str[0] = date;
+        str[1] = score;
+        str[2] = lvl;
+        str[3] = name;
+        str[4] = type;
+
+
+        //{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
         //get data from editTexts
         EditText dmg_edit = findViewById(R.id.dmg_editText);
-        String dmg = dmg_edit.getText().toString();
+        str[5] = dmg_edit.getText().toString();
 
         EditText acc_edit = findViewById(R.id.acc_editText);
-        String accuracy = acc_edit.getText().toString();
+        str[6] = acc_edit.getText().toString();
 
         EditText hand_edit = findViewById(R.id.hand_editText);
-        String handling = hand_edit.getText().toString();
+        str[7] = hand_edit.getText().toString();
 
         EditText reload_edit = findViewById(R.id.reload_editText);
-        String reload = reload_edit.getText().toString();
+        str[8] = reload_edit.getText().toString();
 
         EditText fr_edit = findViewById(R.id.fr_editText);
-        String fireRate = fr_edit.getText().toString();
+        str[9] = fr_edit.getText().toString();
 
         EditText mag_edit = findViewById(R.id.mag_editText);
-        String magazine = mag_edit.getText().toString();
+        str[10] = mag_edit.getText().toString();
 
         EditText element_edit = findViewById(R.id.element_editText);
-        String element = element_edit.getText().toString();
+        str[11] = element_edit.getText().toString();
 
         EditText anoint_edit = findViewById(R.id.anoint_editText);
-        String anoint = anoint_edit.getText().toString();
+        str[12] = anoint_edit.getText().toString();
+
+        //get all the bonus stats
+        LinearLayout lay = findViewById(R.id.bonus_layout);
+        for(int i=0; i<numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i+1);
+
+            str[13+i] = bonus.getText().toString();
+        }
+
 
         //add everything to string array
-        String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        System.out.println(str);
         return str;
     }
     public String[] saveShield(String date, String score, String lvl, String name) {
@@ -302,6 +336,27 @@ public class AddItemActivity extends AppCompatActivity {
         //add everything to string array
         String[] str = new String[]{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
         return str;
+    }
+
+    public void addBonusStat() {
+        //when button is pressed a new edit text is added to the scroll view
+
+        LinearLayout layout = findViewById(R.id.bonus_layout);
+        numBonus++;
+        EditText newBonus = new EditText(getApplicationContext());
+        newBonus.setTag("bonus" + numBonus);
+        newBonus.setHint("Enter Bonus");
+        newBonus.setBackground(null);
+        newBonus.setTextColor(Color.parseColor("#ffffff"));
+        newBonus.setHintTextColor(Color.parseColor("#ffffff"));
+        newBonus.setInputType(TYPE_CLASS_TEXT);
+
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        newBonus.setLayoutParams(params);
+
+        layout.addView(newBonus);
+
+
     }
 
 

@@ -91,13 +91,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@null"
-            android:ems="4"
+            android:ems="15"
             android:hint="Name"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textAlignment="center"
-            android:textSize="14sp"
             android:textColor="#d49e51"
             android:textColorHint="#d49e51"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_bar_guidelineH" />
@@ -139,7 +139,7 @@
             android:background="@null"
             android:ems="4"
             android:hint="damage"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textSize="14sp"
             android:textColor="#d49e51"
             android:textColorHint="#d49e51"
@@ -310,7 +310,7 @@
             android:background="@null"
             android:ems="5"
             android:hint="element"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             app:layout_constraintStart_toStartOf="parent"
@@ -318,13 +318,15 @@
 
         <ScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/anoint_guidelineH"
             app:layout_constraintEnd_toStartOf="@id/input_right_guidelineV"
             app:layout_constraintStart_toEndOf="@id/image_left_guideline"
             app:layout_constraintTop_toBottomOf="@id/mag_guidelineH">
 
             <LinearLayout
+                android:id="@+id/bonus_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -332,21 +334,12 @@
                 <Button
                     android:id="@+id/add_bonus_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#352B2B"
+                    android:layout_height="30dp"
+                    android:background="#00FFFFFF"
                     android:text="Add Bonus"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
 
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@null"
-                    android:inputType="textPersonName"
-                    android:hint="bonus stat"
-                    android:textColor="#ffffff"
-                    android:textColorHint="#ffffff"/>
             </LinearLayout>
         </ScrollView>
 
@@ -368,7 +361,7 @@
             android:ems="10"
             android:hint="Anoinment"
             android:background="@null"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             app:layout_constraintStart_toStartOf="@+id/image_left_guideline"
