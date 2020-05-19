@@ -353,7 +353,7 @@
             app:layout_constraintBottom_toTopOf="@+id/anoint_guidelineH"
             app:layout_constraintEnd_toStartOf="@id/input_right_guidelineV"
             app:layout_constraintStart_toEndOf="@id/image_left_guideline"
-            app:layout_constraintTop_toBottomOf="@id/stat3_guidelineH">
+            app:layout_constraintTop_toBottomOf="@id/stat4_guidelineH">
 
             <LinearLayout
                 android:id="@+id/bonus_layout"

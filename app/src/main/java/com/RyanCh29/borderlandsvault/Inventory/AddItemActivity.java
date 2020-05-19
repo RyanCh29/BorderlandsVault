@@ -41,30 +41,35 @@ public class AddItemActivity extends AppCompatActivity {
             type = "";
         }
 
-        image = findViewById(R.id.imageView);
         //load the proper layout for the type
         if (type.equals("ar")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_ar);
 
         } else if (type.equals("launcher")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_launcher);
 
         } else if (type.equals("pistol")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_pistol);
 
         } else if (type.equals("shotgun")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_shotgun);
 
         } else if (type.equals("sniper")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_sniper);
 
         } else if (type.equals("smg")) {
             setContentView(R.layout.activity_add_weapon);
+            image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.weapon_smg);
 
         } else if (type.equals("shield")) {
@@ -181,8 +186,6 @@ public class AddItemActivity extends AppCompatActivity {
             str[13 + i] = bonus.getText().toString();
         }
 
-        //add everything to string array
-        System.out.println(Arrays.toString(str));
         return str;
     }
 
@@ -220,8 +223,6 @@ public class AddItemActivity extends AppCompatActivity {
             str[10 + i] = bonus.getText().toString();
         }
 
-        //add everything to string array
-        System.out.println(Arrays.toString(str));
         return str;
     }
 
@@ -256,8 +257,6 @@ public class AddItemActivity extends AppCompatActivity {
             str[9 + i] = bonus.getText().toString();
         }
 
-        //add everything to string array
-        System.out.println(Arrays.toString(str));
         return str;
     }
 
@@ -305,8 +304,6 @@ public class AddItemActivity extends AppCompatActivity {
             str[13 + i] = bonus.getText().toString();
         }
 
-        //add everything to string array
-        System.out.println(Arrays.toString(str));
         return str;
     }
 
@@ -319,7 +316,6 @@ public class AddItemActivity extends AppCompatActivity {
         str[3] = name;
         str[4] = type;
 
-        //{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
         //get data from editTexts
         EditText line1_edit = findViewById(R.id.line1_left_editText);
         str[5] = line1_edit.getText().toString();
@@ -352,7 +348,7 @@ public class AddItemActivity extends AppCompatActivity {
         str[14] = stat3_edit.getText().toString();
 
         EditText stat4_edit = findViewById(R.id.stat4_editText);
-        str[14] = stat4_edit.getText().toString();
+        str[15] = stat4_edit.getText().toString();
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
@@ -362,8 +358,6 @@ public class AddItemActivity extends AppCompatActivity {
             str[16 + i] = bonus.getText().toString();
         }
 
-        //add everything to string array
-        System.out.println(Arrays.toString(str));
         return str;
     }
 

@@ -100,6 +100,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         for(String str: item){
             text.append(" ").append(str).append(",");
         }
+        System.out.println(text.toString());
         Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
         toast.show();
     }
@@ -131,7 +132,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                 if(i<size) {
 //                    System.out.println(i);
                     buttons[i] = new Button(getApplicationContext());
-                    buttons[i].setText(content.get(i)[0]);
+                    buttons[i].setText(content.get(i)[3]);
                     buttons[i].setId(i);
 
                     final int finalI = i;
