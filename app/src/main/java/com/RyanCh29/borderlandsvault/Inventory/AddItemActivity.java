@@ -1,7 +1,5 @@
 package com.RyanCh29.borderlandsvault.Inventory;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
 import com.RyanCh29.borderlandsvault.R;
 
 import java.text.DateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import static android.text.InputType.TYPE_CLASS_TEXT;
@@ -34,8 +34,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         //check if the intent has any extras, if extras are sent it is the gear type used to determine the proper layout
         Bundle extras = getIntent().getExtras();
-        if(extras !=null)
-        {
+        if (extras != null) {
             type = extras.getString("Type");
 
         } else {
@@ -44,41 +43,41 @@ public class AddItemActivity extends AppCompatActivity {
 
         image = findViewById(R.id.imageView);
         //load the proper layout for the type
-        if(type.equals("ar")) {
+        if (type.equals("ar")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_ar);
 
-        } else if(type.equals("launcher")) {
+        } else if (type.equals("launcher")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_launcher);
 
-        }else if(type.equals("pistol")) {
+        } else if (type.equals("pistol")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_pistol);
 
-        }else if(type.equals("shotgun")) {
+        } else if (type.equals("shotgun")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_shotgun);
 
-        }else if(type.equals("sniper")) {
+        } else if (type.equals("sniper")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_sniper);
 
-        }else if(type.equals("smg")) {
+        } else if (type.equals("smg")) {
             setContentView(R.layout.activity_add_weapon);
             image.setImageResource(R.drawable.weapon_smg);
 
-        }else if(type.equals("shield")) {
+        } else if (type.equals("shield")) {
             setContentView(R.layout.activity_add_shield);
 
-        }else if(type.equals("grenade mod")) {
+        } else if (type.equals("grenade mod")) {
             setContentView(R.layout.activity_add_grenade_mod);
 
-        }else if(type.equals("class mod")) {
+        } else if (type.equals("class mod")) {
             //TODO: complete activity_add_class_mod layout
             setContentView(R.layout.activity_add_class_mod);
 
-        }else if(type.equals("artifact")) {
+        } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
 
         }
@@ -119,20 +118,20 @@ public class AddItemActivity extends AppCompatActivity {
         //append the gear to the file
         //check type variable for the proper file
 
-        if(type.equals("ar") || type.equals("launcher") || type.equals("pistol") || type.equals("shotgun") || type.equals("sniper") || type.equals("smg")) {
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_weapons.csv", saveWeapon(date, score, lvl, name));
+        if (type.equals("ar") || type.equals("launcher") || type.equals("pistol") || type.equals("shotgun") || type.equals("sniper") || type.equals("smg")) {
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_weapons.csv", saveWeapon(date, score, lvl, name));
 
-        } else if(type.equals("shield")) {
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_shields.csv", saveShield(date, score, lvl, name));
+        } else if (type.equals("shield")) {
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_shields.csv", saveShield(date, score, lvl, name));
 
-        }else if(type.equals("grenade mod")) {
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name));
+        } else if (type.equals("grenade mod")) {
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name));
 
-        }else if(type.equals("class mod")) {
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name));
+        } else if (type.equals("class mod")) {
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name));
 
-        }else if(type.equals("artifact")) {
-            csv.CSVAppend(getApplicationContext(),"Borderlands_User_CSV_artifacts.csv", saveArtifact(date, score, lvl, name));
+        } else if (type.equals("artifact")) {
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv", saveArtifact(date, score, lvl, name));
 
         }
 
@@ -140,9 +139,7 @@ public class AddItemActivity extends AppCompatActivity {
 
 
     public String[] saveWeapon(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs
-
-        String[] str = new String[13+numBonus];
+        String[] str = new String[13 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -178,20 +175,19 @@ public class AddItemActivity extends AppCompatActivity {
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for(int i=0; i<numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i+1);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[13+i] = bonus.getText().toString();
+            str[13 + i] = bonus.getText().toString();
         }
 
         //add everything to string array
-        System.out.println(str);
+        System.out.println(Arrays.toString(str));
         return str;
     }
-    public String[] saveShield(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs
 
-        String[] str = new String[10+numBonus];
+    public String[] saveShield(String date, String score, String lvl, String name) {
+        String[] str = new String[10 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -218,20 +214,19 @@ public class AddItemActivity extends AppCompatActivity {
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for(int i=0; i<numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i+1);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[10+i] = bonus.getText().toString();
+            str[10 + i] = bonus.getText().toString();
         }
 
         //add everything to string array
-        System.out.println(str);
+        System.out.println(Arrays.toString(str));
         return str;
     }
-    public String[] saveGrenadeMod(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs
 
-        String[] str = new String[9+numBonus];
+    public String[] saveGrenadeMod(String date, String score, String lvl, String name) {
+        String[] str = new String[9 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -255,20 +250,20 @@ public class AddItemActivity extends AppCompatActivity {
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for(int i=0; i<numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i+1);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[9+i] = bonus.getText().toString();
+            str[9 + i] = bonus.getText().toString();
         }
 
         //add everything to string array
-        System.out.println(str);
+        System.out.println(Arrays.toString(str));
         return str;
     }
+
     public String[] saveClassMod(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs(if anything is empty make a toast saying it is empty)
         //TODO: figure out best way to implement adding class mod
-        String[] str = new String[13+numBonus];
+        String[] str = new String[13 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -304,20 +299,19 @@ public class AddItemActivity extends AppCompatActivity {
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for(int i=0; i<numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i+1);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[13+i] = bonus.getText().toString();
+            str[13 + i] = bonus.getText().toString();
         }
 
         //add everything to string array
-        System.out.println(str);
+        System.out.println(Arrays.toString(str));
         return str;
     }
-    public String[] saveArtifact(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs
 
-        String[] str = new String[16+numBonus];
+    public String[] saveArtifact(String date, String score, String lvl, String name) {
+        String[] str = new String[16 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -362,14 +356,14 @@ public class AddItemActivity extends AppCompatActivity {
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for(int i=0; i<numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i+1);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[16+i] = bonus.getText().toString();
+            str[16 + i] = bonus.getText().toString();
         }
 
         //add everything to string array
-        System.out.println(str);
+        System.out.println(Arrays.toString(str));
         return str;
     }
 
