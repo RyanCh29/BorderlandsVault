@@ -259,7 +259,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.388" />
+            app:layout_constraintGuide_percent="0.38" />
 
         <EditText
             android:id="@+id/stat1_editText"
@@ -272,7 +272,7 @@
             android:inputType="text"
             android:textColor="#d49e51"
             android:textColorHint="#d49e51"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/stat1_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_left_guidelineV" />
 
@@ -282,7 +282,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.437" />
+            app:layout_constraintGuide_percent="0.415" />
 
         <EditText
             android:id="@+id/stat2_editText"
@@ -295,7 +295,7 @@
             android:inputType="text"
             android:textColor="#d49e51"
             android:textColorHint="#d49e51"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/stat2_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_left_guidelineV" />
 
@@ -305,7 +305,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.485" />
+            app:layout_constraintGuide_percent="0.451" />
 
         <EditText
             android:id="@+id/stat3_editText"
@@ -318,8 +318,31 @@
             android:inputType="text"
             android:textColor="#d49e51"
             android:textColorHint="#d49e51"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/stat3_guidelineH"
+            app:layout_constraintStart_toStartOf="@+id/input_left_guidelineV" />
+
+        <!--stat 4-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/stat4_guidelineH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.485" />
+
+        <EditText
+            android:id="@+id/stat4_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="stat 4"
+            android:inputType="text"
+            android:textColor="#d49e51"
+            android:textColorHint="#d49e51"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/stat4_guidelineH"
             app:layout_constraintStart_toStartOf="@+id/input_left_guidelineV" />
 
         <!--Bonus stat area-->

@@ -79,7 +79,6 @@ public class AddItemActivity extends AppCompatActivity {
             setContentView(R.layout.activity_add_class_mod);
 
         }else if(type.equals("artifact")) {
-            //TODO: complete activity_add_artifact layout
             setContentView(R.layout.activity_add_artifact);
 
         }
@@ -267,7 +266,7 @@ public class AddItemActivity extends AppCompatActivity {
         return str;
     }
     public String[] saveClassMod(String date, String score, String lvl, String name) {
-        //TODO: add checks for empty inputs
+        //TODO: add checks for empty inputs(if anything is empty make a toast saying it is empty)
         //TODO: figure out best way to implement adding class mod
         String[] str = new String[13+numBonus];
 
@@ -318,7 +317,7 @@ public class AddItemActivity extends AppCompatActivity {
     public String[] saveArtifact(String date, String score, String lvl, String name) {
         //TODO: add checks for empty inputs
 
-        String[] str = new String[15+numBonus];
+        String[] str = new String[16+numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -358,12 +357,15 @@ public class AddItemActivity extends AppCompatActivity {
         EditText stat3_edit = findViewById(R.id.stat3_editText);
         str[14] = stat3_edit.getText().toString();
 
+        EditText stat4_edit = findViewById(R.id.stat4_editText);
+        str[14] = stat4_edit.getText().toString();
+
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for(int i=0; i<numBonus; i++) {
             EditText bonus = (EditText) lay.getChildAt(i+1);
 
-            str[15+i] = bonus.getText().toString();
+            str[16+i] = bonus.getText().toString();
         }
 
         //add everything to string array
