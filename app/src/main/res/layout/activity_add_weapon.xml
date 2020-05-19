@@ -359,7 +359,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Anoinment"
+            android:hint="Anointment"
             android:background="@null"
             android:inputType="text"
             android:textColor="#ffffff"
