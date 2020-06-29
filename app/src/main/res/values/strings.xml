@@ -1,19 +1,26 @@
 <resources>
     <string name="app_name">Borderlands Vault</string>
     <string name="title_activity_inventory">InventoryActivity</string>
-
+    <!--item types-->
     <string name="weapon">Weapon</string>
     <string name="shield">Shield</string>
     <string name="grenade">Grenade Mod</string>
     <string name="class_mod">Class Mod</string>
     <string name="artifact">Artifact</string>
 
+    <!--weapon types-->
     <string name="ar">Assault Rifle</string>
     <string name="launcher">Launcher</string>
     <string name="pistol">Pistol</string>
     <string name="shotgun">Shotgun</string>
     <string name="sniper">Sniper</string>
     <string name="smg">SMG</string>
+
+    <!--characters-->
+    <string name="amara">Amara</string>
+    <string name="fl4k">Fl4k</string>
+    <string name="moze">Moze</string>
+    <string name="zane">Zane</string>
 
     <string name="action_settings">Settings</string>
 </resources>

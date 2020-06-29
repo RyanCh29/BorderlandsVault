@@ -15,7 +15,6 @@ import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
 import com.RyanCh29.borderlandsvault.R;
 
 import java.text.DateFormat;
-import java.util.Arrays;
 import java.util.Date;
 
 import static android.text.InputType.TYPE_CLASS_TEXT;
@@ -78,9 +77,25 @@ public class AddItemActivity extends AppCompatActivity {
         } else if (type.equals("grenade mod")) {
             setContentView(R.layout.activity_add_grenade_mod);
 
-        } else if (type.equals("class mod")) {
-            //TODO: complete activity_add_class_mod layout
+        } else if (type.equals("amara")) {
             setContentView(R.layout.activity_add_class_mod);
+            image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.class_mod_amara);
+
+        } else if (type.equals("fl4k")) {
+            setContentView(R.layout.activity_add_class_mod);
+            image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.class_mod_fl4k);
+
+        } else if (type.equals("moze")) {
+            setContentView(R.layout.activity_add_class_mod);
+            image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.class_mod_moze);
+
+        } else if (type.equals("zane")) {
+            setContentView(R.layout.activity_add_class_mod);
+            image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.class_mod_zane);
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
@@ -262,6 +277,8 @@ public class AddItemActivity extends AppCompatActivity {
 
     public String[] saveClassMod(String date, String score, String lvl, String name) {
         //TODO: figure out best way to implement adding class mod
+        //idea 1: similar to adding weapons it opens multiple dialogs starting when class mod is pressed a dialog for choosing character is opened then for the specific class mod
+        //TODO idea 2: a blank class mod is opened and the user must choose the character and the skills from a drop down menu
         String[] str = new String[13 + numBonus];
 
         str[0] = date;

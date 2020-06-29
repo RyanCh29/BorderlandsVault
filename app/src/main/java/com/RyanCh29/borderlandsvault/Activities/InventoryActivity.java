@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
+import com.RyanCh29.borderlandsvault.Dialogs.CharacterDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.ChoiceDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.WeaponDialog;
 import com.RyanCh29.borderlandsvault.Inventory.AddItemActivity;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity implements ChoiceDialog.ChoiceDialogListener,
-        WeaponDialog.WeaponDialogListener {
+        WeaponDialog.WeaponDialogListener, CharacterDialog.CharacterDialogListener {
     private List<String[]> all; //0
     private List<String[]> weapons; //1
     private List<String[]> shields; //2
@@ -254,6 +255,9 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         } else if(c == 1) {
             WeaponDialog weaponDialog = new WeaponDialog();
             weaponDialog.show(getSupportFragmentManager(),"weapon dialog");
+        } else if(c == 2) {
+            CharacterDialog characterDialog = new CharacterDialog();
+            characterDialog.show(getSupportFragmentManager(),"character dialog");
         }
 
     }
@@ -277,16 +281,17 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
             startActivity(intent);
         }
         else if(choice == 4) {
-            Intent intent = new Intent(this, AddItemActivity.class);
-            intent.putExtra("Type","class mod");
-            startActivity(intent);
+//            Intent intent = new Intent(this, AddItemActivity.class);
+//            intent.putExtra("Type","class mod");
+//            startActivity(intent);
+            openDialog(2);
         }
         else if(choice == 5) {
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","artifact");
             startActivity(intent);
         }
-        else if(choice > 5) {
+        else if(choice > 5 && choice < 100) {
             if(choice == 11) {
                 Intent intent = new Intent(this, AddItemActivity.class);
                 intent.putExtra("Type","ar");
@@ -317,154 +322,27 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                 intent.putExtra("Type","smg");
                 startActivity(intent);
             }
-        }
-    }
-
-    public void saveGear(final int id) {
-        //save gear on a new thread
-        Thread save = new Thread() {
-            public void run() {
-
-                CSVManipulator manipulator = new CSVManipulator();
-
-                if(id == 1) {
-                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_weapons.csv", weapons);
-                } else if(id == 2) {
-                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_shields.csv", shields);
-                } else if(id == 3) {
-                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", grenades);
-                } else if(id == 4) {
-                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", classMods);
-                } else if(id == 5) {
-                    manipulator.CSVWrite(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv", artifacts);
-                }
-
-                System.out.println(id + " saved");
+        } else if(choice > 100) {
+            if(choice == 111) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","amara");
+                startActivity(intent);
             }
-        };
-
-        save.start();
-
-    }
-
-    public void addShield(String score, String lvl, String name, String cap,
-                          String rechargeDelay, String rechargeRate, String element) {
-        StringBuilder text = new StringBuilder();
-
-        text.append(score).append(", ");
-        text.append(lvl).append(", ");
-        text.append(name).append(", ");
-
-        text.append(cap).append(", ");
-        text.append(rechargeDelay).append(", ");
-        text.append(rechargeRate).append(", ");
-        text.append(element).append(", ");
-
-//        text.append(anoint).append(", ");
-//        text.append(date).append(", ");
-//        text.append(fav).append(", ");
-//        text.append(bonuses).append(", ");
-
-        //saving gear
-        //add to list
-        String[] str = {score, lvl, name, "shield", cap, rechargeDelay, rechargeRate, element, "anointment", "date", "favourite", "bonus 1"};
-        shields.add(str);
-        all.add(str);
-
-        //update content showing
-        showContent(shields);
-        //call method to save
-        saveGear(2);
-        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
-        toast.show();
-    }
-    public void addGrenadeMod(String score, String lvl, String name, String dmg,
-                          String radius, String element) {
-        StringBuilder text = new StringBuilder();
-
-        text.append(score).append(", ");
-        text.append(lvl).append(", ");
-        text.append(name).append(", ");
-
-        text.append(dmg).append(", ");
-        text.append(radius).append(", ");
-        text.append(element).append(", ");
-
-//        text.append(anoint).append(", ");
-//        text.append(date).append(", ");
-//        text.append(fav).append(", ");
-//        text.append(bonuses).append(", ");
-
-        //saving gear
-        //add to list
-        String[] str = {score, lvl, name, "grenade mod", dmg, radius, element, "anointment", "date", "favourite", "bonus 1"};
-        grenades.add(str);
-        all.add(str);
-
-        //update content showing
-        showContent(grenades);
-        //call method to save
-        saveGear(3);
-
-        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
-        toast.show();
-    }
-    public void addClassMod(String score, String lvl, String name, String skill1,
-                          String skill2, String skill3) {
-        StringBuilder text = new StringBuilder();
-
-        text.append(score).append(", ");
-        text.append(lvl).append(", ");
-        text.append(name).append(", ");
-
-        text.append(skill1).append(", ");
-        text.append(skill2).append(", ");
-        text.append(skill3).append(", ");
-
-//        text.append(date).append(", ");
-//        text.append(fav).append(", ");
-//        text.append(bonuses).append(", ");
-
-        //saving gear
-        //add to list
-        String[] str = {score, lvl, name, "class mod", skill1, skill2, skill3, "date", "favourite", "bonus 1"};
-        classMods.add(str);
-        all.add(str);
-
-        //update content showing
-        showContent(classMods);
-        //call method to save
-        saveGear(4);
-
-        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void addArtifact(String score, String lvl, String name, String prefix) {
-        StringBuilder text = new StringBuilder();
-
-        text.append(score).append(", ");
-        text.append(lvl).append(", ");
-        text.append(name).append(", ");
-
-        text.append(prefix).append(", ");
-
-//        text.append(date).append(", ");
-//        text.append(fav).append(", ");
-//        text.append(bonuses).append(", ");
-
-        //saving gear
-        //add to list
-        String[] str = {score, lvl, name, "artifact", prefix, "date", "favourite", "bonus 1"};
-        artifacts.add(str);
-        all.add(str);
-
-        //update content showing
-        showContent(artifacts);
-        //call method to save
-        saveGear(5);
-
-        Toast toast = Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG);
-        toast.show();
+            else if(choice == 222) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","fl4k");
+                startActivity(intent);
+            }
+            else if(choice == 333) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","moze");
+                startActivity(intent);
+            }
+            else if(choice == 444) {
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("Type","zane");
+                startActivity(intent);
+            }
+        }
     }
 }

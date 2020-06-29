@@ -45,7 +45,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@id/image_left_guideline"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/weapon" />
+            app:srcCompat="@drawable/class_mod" />
         <!--TOP BAR-->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/top_bar_guidelineH"
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.42" />
+            app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/input_right_guidelineV"
@@ -117,213 +117,38 @@
             app:layout_constraintGuide_percent="0.82" />
         <!--DAMAGE-->
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/dmg_guidelineH"
+            android:id="@+id/upper_text_guidelineH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.197" />
 
         <TextView
-            android:id="@+id/dmg_textView"
+            android:id="@+id/upper_text_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Damage"
+            android:text="LEGENDARY ___ CLASS MOD"
             android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/dmg_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
+            app:layout_constraintBottom_toTopOf="@+id/upper_text_guidelineH"
+            app:layout_constraintEnd_toStartOf="@+id/image_right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/image_left_guideline" />
 
-        <EditText
-            android:id="@+id/dmg_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="damage"
-            android:inputType="text"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/dmg_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-        <!--ACCURACY-->
+        <!--LOWER TEXT-->
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/acc_guidelineH"
+            android:id="@+id/lower_text_guidelineH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.245" />
-
-        <TextView
-            android:id="@+id/acc_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Accuracy"
-            android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/acc_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
-
-        <EditText
-            android:id="@+id/acc_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="accuracy"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/acc_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-        <!--HANDLING-->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hand_guidelineH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.293" />
-
-        <TextView
-            android:id="@+id/hand_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Handling"
-            android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/hand_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
-
-        <EditText
-            android:id="@+id/hand_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="handling"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/hand_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-        <!--RELOAD-->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/reload_guidelineH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.339" />
-
-        <TextView
-            android:id="@+id/reload_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reload Speed"
-            android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/reload_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
-
-        <EditText
-            android:id="@+id/reload_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="reload"
-            android:inputType="numberDecimal"
-            android:maxLength="5"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/reload_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-        <!--FIRE RATE-->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/fr_guidelineH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.386" />
-
-        <TextView
-            android:id="@+id/fr_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fire Rate"
-            android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/fr_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
-
-        <EditText
-            android:id="@+id/fr_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="rate"
-            android:inputType="numberDecimal"
-            android:maxLength="5"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/fr_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-        <!--MAGAZINE-->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/mag_guidelineH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.435" />
-
-        <TextView
-            android:id="@+id/mag_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Magazine Size"
-            android:textColor="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/mag_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_mid_guidelineV" />
-
-        <EditText
-            android:id="@+id/mag_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="4"
-            android:hint="size"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textSize="14sp"
-            android:textColor="#d49e51"
-            android:textColorHint="#d49e51"
-            app:layout_constraintBottom_toTopOf="@+id/mag_guidelineH"
-            app:layout_constraintStart_toStartOf="@+id/input_right_guidelineV" />
-
-        <EditText
-            android:id="@+id/element_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@null"
-            android:ems="5"
-            android:hint="element"
-            android:inputType="text"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/reload_guidelineH" />
+            app:layout_constraintGuide_percent="0.38" />
 
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/anoint_guidelineH"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guidelineH"
             app:layout_constraintEnd_toStartOf="@id/input_right_guidelineV"
             app:layout_constraintStart_toEndOf="@id/image_left_guideline"
-            app:layout_constraintTop_toBottomOf="@id/mag_guidelineH">
+            app:layout_constraintTop_toBottomOf="@id/bonus_guidelineH">
 
             <LinearLayout
                 android:id="@+id/bonus_layout"
@@ -344,29 +169,22 @@
         </ScrollView>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/anoint_guidelineH"
+            android:id="@+id/bonus_guidelineH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.58"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guidelineH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.77"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/anoint_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Anoinment"
-            android:background="@null"
-            android:inputType="text"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
-            app:layout_constraintStart_toStartOf="@+id/image_left_guideline"
-            app:layout_constraintTop_toBottomOf="@id/anoint_guidelineH" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
