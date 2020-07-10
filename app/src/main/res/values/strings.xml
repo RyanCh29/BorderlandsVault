@@ -16,11 +16,55 @@
     <string name="sniper">Sniper</string>
     <string name="smg">SMG</string>
 
-    <!--characters-->
+    <!--characters & class mods-->
     <string name="amara">Amara</string>
+    <string-array name="amara_mods">
+        <item>Breaker</item>
+        <item>Dragon</item>
+        <item>Elementalist</item>
+        <item>Golden Rule</item>
+        <item>Nimbus</item>
+        <item>Phasezerker</item>
+        <item>Spiritual Driver</item>
+        <item>Stone</item>
+    </string-array>
+
     <string name="fl4k">Fl4k</string>
+    <string-array name="fl4k_mods">
+        <item>Bounty Hunter</item>
+        <item>Cosmic Stalker</item>
+        <item>DE4DEYE</item>
+        <item>Friend-Bot</item>
+        <item>R4kk P4k</item>
+        <item>Rakk Commander</item>
+        <item>Red Fang</item>
+        <item>St4ckbot</item>
+        <item>Tr4iner</item>
+    </string-array>
+
     <string name="moze">Moze</string>
+    <string-array name="moze_mods">
+        <item>Bear Trooper</item>
+        <item>Blast Master</item>
+        <item>Bloodletter</item>
+        <item>Sapper</item>
+        <item>Green Monster</item>
+        <item>Mind Sweeper</item>
+        <item>Raging Bear</item>
+        <item>Rocketeer</item>
+    </string-array>
+
     <string name="zane">Zane</string>
+    <string-array name="zane_mods">
+        <item>Antifreeze</item>
+        <item>Cold Warrior</item>
+        <item>Conductor</item>
+        <item>Executor</item>
+        <item>Infiltrator</item>
+        <item>Seein\' Dead</item>
+        <item>Shockerator</item>
+        <item>Techspert</item>
+    </string-array>
 
     <string name="action_settings">Settings</string>
 </resources>

@@ -29,31 +29,31 @@ public class ChoiceDialog extends AppCompatDialogFragment {
         Button weapon = view.findViewById(R.id.weapon_button);
         weapon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(1);
+                listener.getChoice("weapon");
             }
         });
         Button shield = view.findViewById(R.id.shield_button);
         shield.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(2);
+                listener.getChoice("shield");
             }
         });
         Button grenade = view.findViewById(R.id.grenadeMod_button);
         grenade.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(3);
+                listener.getChoice("grenade");
             }
         });
         Button classMod = view.findViewById(R.id.classMod_button);
         classMod.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(4);
+                listener.getChoice("class");
             }
         });
         Button artifact = view.findViewById(R.id.artifact_button);
         artifact.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(5);
+                listener.getChoice("artifact");
             }
         });
 
@@ -73,7 +73,7 @@ public class ChoiceDialog extends AppCompatDialogFragment {
     }
 
     public interface ChoiceDialogListener {
-        void getChoice(int c);
+        void getChoice(String c);
     }
 
 

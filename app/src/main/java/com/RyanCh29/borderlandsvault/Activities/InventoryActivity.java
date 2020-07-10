@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.RyanCh29.borderlandsvault.CSV.CSVManipulator;
 import com.RyanCh29.borderlandsvault.Dialogs.CharacterDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.ChoiceDialog;
+import com.RyanCh29.borderlandsvault.Dialogs.ClassModDialog;
 import com.RyanCh29.borderlandsvault.Dialogs.WeaponDialog;
 import com.RyanCh29.borderlandsvault.Inventory.AddItemActivity;
 import com.RyanCh29.borderlandsvault.Inventory.DisplayItemActivity;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity implements ChoiceDialog.ChoiceDialogListener,
-        WeaponDialog.WeaponDialogListener, CharacterDialog.CharacterDialogListener {
+        WeaponDialog.WeaponDialogListener, CharacterDialog.CharacterDialogListener, ClassModDialog.ClassModDialogListener {
     private List<String[]> all; //0
     private List<String[]> weapons; //1
     private List<String[]> shields; //2
@@ -32,7 +33,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
     private List<String[]> artifacts; //5
 
     private int currentContent;
-    private int choice;
+    private String choice;
 
 
     @Override
@@ -42,7 +43,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
         readFiles();
 
-        choice = 0;
+        choice = "";
         //set default output to all items
         currentContent = 0;
         changeBanner("All Legendaries");
@@ -243,106 +244,121 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         //user chooses item type
         //new activity is created where the info is entered
         openDialog(choice); // choice dialog
-        choice = 0; // reset choice
+        choice = ""; // reset choice
     }
 
     //give parameter for which dialog to open
-    public void openDialog(int c) {
+    public void openDialog(String c) {
 
-        if(c == 0) {
+        if(c.equals("")) {
             ChoiceDialog choiceDialog = new ChoiceDialog();
             choiceDialog.show(getSupportFragmentManager(),"choice dialog");
-        } else if(c == 1) {
+        } else if(c.equals("weapon")) {
             WeaponDialog weaponDialog = new WeaponDialog();
             weaponDialog.show(getSupportFragmentManager(),"weapon dialog");
-        } else if(c == 2) {
+        } else if(c.equals("class")) {
             CharacterDialog characterDialog = new CharacterDialog();
             characterDialog.show(getSupportFragmentManager(),"character dialog");
+        } else if(c.equals("amara")) {
+            ClassModDialog modDialog = new ClassModDialog();
+
+            Bundle arg = new Bundle();
+            arg.putChar("character", 'a');
+            modDialog.setArguments(arg);
+
+            modDialog.show(getSupportFragmentManager(),"class mod dialog");
+
+        } else if(c.equals("fl4k")) {
+            ClassModDialog modDialog = new ClassModDialog();
+
+            Bundle arg = new Bundle();
+            arg.putChar("character", 'f');
+            modDialog.setArguments(arg);
+
+            modDialog.show(getSupportFragmentManager(),"class mod dialog");
+        } else if(c.equals("moze")) {
+            ClassModDialog modDialog = new ClassModDialog();
+
+            Bundle arg = new Bundle();
+            arg.putChar("character", 'm');
+            modDialog.setArguments(arg);
+
+            modDialog.show(getSupportFragmentManager(),"class mod dialog");
+        } else if(c.equals("zane")) {
+            ClassModDialog modDialog = new ClassModDialog();
+
+            Bundle arg = new Bundle();
+            arg.putChar("character", 'z');
+            modDialog.setArguments(arg);
+
+            modDialog.show(getSupportFragmentManager(),"class mod dialog");
         }
 
     }
 
-    public void getChoice(int c) {
+
+    public void getChoice(String c) {
         choice = c;
 
         //if choice is 1 open weapon dialog
-        if(choice == 1) {
-            openDialog(1);
-        }
-        //else open the activity
-        else if(choice == 2) {
+        if(choice.equals("weapon")) {
+            openDialog(choice);
+        } else if(choice.equals("shield")) {
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","shield");
             startActivity(intent);
-        }
-        else if(choice == 3) {
+        } else if(choice.equals("grenade")) {
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","grenade mod");
             startActivity(intent);
-        }
-        else if(choice == 4) {
-//            Intent intent = new Intent(this, AddItemActivity.class);
-//            intent.putExtra("Type","class mod");
-//            startActivity(intent);
-            openDialog(2);
-        }
-        else if(choice == 5) {
+        } else if(choice.equals("class")) {
+            openDialog(choice);
+        } else if(choice.equals("artifact")) {
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","artifact");
             startActivity(intent);
+        } else if(choice.equals("ar")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","ar");
+            startActivity(intent);
         }
-        else if(choice > 5 && choice < 100) {
-            if(choice == 11) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","ar");
-                startActivity(intent);
-            }
-            else if(choice == 22) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","launcher");
-                startActivity(intent);
-            }
-            else if(choice == 33) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","pistol");
-                startActivity(intent);
-            }
-            else if(choice == 44) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","shotgun");
-                startActivity(intent);
-            }
-            else if(choice == 55) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","sniper");
-                startActivity(intent);
-            }
-            else if(choice == 66) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","smg");
-                startActivity(intent);
-            }
-        } else if(choice > 100) {
-            if(choice == 111) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","amara");
-                startActivity(intent);
-            }
-            else if(choice == 222) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","fl4k");
-                startActivity(intent);
-            }
-            else if(choice == 333) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","moze");
-                startActivity(intent);
-            }
-            else if(choice == 444) {
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("Type","zane");
-                startActivity(intent);
-            }
+        else if(choice.equals("launcher")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","launcher");
+            startActivity(intent);
         }
+        else if(choice.equals("pistol")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","pistol");
+            startActivity(intent);
+        }
+        else if(choice.equals("shotgun")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","shotgun");
+            startActivity(intent);
+        }
+        else if(choice.equals("sniper")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","sniper");
+            startActivity(intent);
+        }
+        else if(choice.equals("smg")) {
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","smg");
+            startActivity(intent);
+        } else if(choice.equals("amara")) {
+            openDialog(choice);
+        }
+        else if(choice.equals("fl4k")) {
+            openDialog(choice);
+        }
+        else if(choice.equals("moze")) {
+            openDialog(choice);
+        }
+        else if(choice.equals("zane")) {
+            openDialog(choice);
+        }
+
+
     }
 }

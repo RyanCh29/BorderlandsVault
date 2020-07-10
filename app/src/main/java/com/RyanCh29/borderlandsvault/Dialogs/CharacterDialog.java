@@ -28,25 +28,25 @@ public class CharacterDialog extends AppCompatDialogFragment {
         Button ar = view.findViewById(R.id.amara_button);
         ar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(111);
+                listener.getChoice("amara");
             }
         });
         Button launcher = view.findViewById(R.id.fl4k_button);
         launcher.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(222);
+                listener.getChoice("fl4k");
             }
         });
         Button pistol = view.findViewById(R.id.moze_button);
         pistol.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(333);
+                listener.getChoice("moze");
             }
         });
         Button shotgun = view.findViewById(R.id.zane_button);
         shotgun.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(444);
+                listener.getChoice("zane");
             }
         });
 
@@ -65,7 +65,7 @@ public class CharacterDialog extends AppCompatDialogFragment {
     }
 
     public interface CharacterDialogListener {
-        void getChoice(int c);
+        void getChoice(String c);
     }
 }
 

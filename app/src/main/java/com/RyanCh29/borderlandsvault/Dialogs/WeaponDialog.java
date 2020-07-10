@@ -28,37 +28,37 @@ public class WeaponDialog extends AppCompatDialogFragment {
         Button ar = view.findViewById(R.id.ar_button);
         ar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(11);
+                listener.getChoice("ar");
             }
         });
         Button launcher = view.findViewById(R.id.launcher_button);
         launcher.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(22);
+                listener.getChoice("launcher");
             }
         });
         Button pistol = view.findViewById(R.id.pistol_button);
         pistol.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(33);
+                listener.getChoice("pistol");
             }
         });
         Button shotgun = view.findViewById(R.id.shotgun_button);
         shotgun.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(44);
-            }
-        });
-        Button sniper = view.findViewById(R.id.sniper_button);
-        sniper.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                listener.getChoice(55);
+                listener.getChoice("shotgun");
             }
         });
         Button smg = view.findViewById(R.id.smg_button);
         smg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listener.getChoice(66);
+                listener.getChoice("smg");
+            }
+        });
+        Button sniper = view.findViewById(R.id.sniper_button);
+        sniper.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                listener.getChoice("sniper");
             }
         });
 
@@ -78,6 +78,6 @@ public class WeaponDialog extends AppCompatDialogFragment {
     }
 
     public interface WeaponDialogListener {
-        void getChoice(int c);
+        void getChoice(String c);
     }
 }

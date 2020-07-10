@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -82,20 +83,33 @@ public class AddItemActivity extends AppCompatActivity {
             image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.class_mod_amara);
 
+            TextView upperText = findViewById(R.id.upper_text_textView);
+            upperText.setText("LEGENDARY SIREN CLASS MOD");
+
         } else if (type.equals("fl4k")) {
             setContentView(R.layout.activity_add_class_mod);
             image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.class_mod_fl4k);
+
+            TextView upperText = findViewById(R.id.upper_text_textView);
+            upperText.setText("LEGENDARY BEASTMASTER CLASS MOD");
+
 
         } else if (type.equals("moze")) {
             setContentView(R.layout.activity_add_class_mod);
             image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.class_mod_moze);
 
+            TextView upperText = findViewById(R.id.upper_text_textView);
+            upperText.setText("LEGENDARY GUNNER CLASS MOD");
+
         } else if (type.equals("zane")) {
             setContentView(R.layout.activity_add_class_mod);
             image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.class_mod_zane);
+
+            TextView upperText = findViewById(R.id.upper_text_textView);
+            upperText.setText("LEGENDARY OPERATIVE CLASS MOD");
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
@@ -278,7 +292,9 @@ public class AddItemActivity extends AppCompatActivity {
     public String[] saveClassMod(String date, String score, String lvl, String name) {
         //TODO: figure out best way to implement adding class mod
         //idea 1: similar to adding weapons it opens multiple dialogs starting when class mod is pressed a dialog for choosing character is opened then for the specific class mod
-        //TODO idea 2: a blank class mod is opened and the user must choose the character and the skills from a drop down menu
+        //idea 2: a blank class mod is opened and the user must choose the character and the skills from a drop down menu
+        //TODO idea 3: user chooses the character in a dialog and then the specific class mod in another dialog
+
         String[] str = new String[13 + numBonus];
 
         str[0] = date;
