@@ -17,8 +17,21 @@
     <string name="smg">SMG</string>
 
     <!--characters & class mods-->
+
+    <!--amara __________________________________________________________________________________ -->
     <string name="amara">Amara</string>
     <string-array name="amara_mods">
+        <item>breaker</item>
+        <item>dragon</item>
+        <item>elementalist</item>
+        <item>golden_rule</item>
+        <item>nimbus</item>
+        <item>phasezerker</item>
+        <item>spiritual_driver</item>
+        <item>stone</item>
+    </string-array>
+
+    <string-array name="amara_mods_names">
         <item>Breaker</item>
         <item>Dragon</item>
         <item>Elementalist</item>
@@ -29,8 +42,86 @@
         <item>Stone</item>
     </string-array>
 
+    <string-array name="breaker">
+        <item>amara</item>
+        <item>Breaker</item>
+        <item>personal_space</item>
+        <item>find_your_center</item>
+        <item>jab_cross</item>
+    </string-array>
+
+    <string-array name="dragon">
+        <item>amara</item>
+        <item>Dragon</item>
+        <item>do_harm</item>
+        <item>restless</item>
+        <item>remnant</item>
+    </string-array>
+
+    <string-array name="elementalist">
+        <item>amara</item>
+        <item>Elementalist</item>
+        <item>infusion</item>
+        <item>wildfire</item>
+        <item>violent_tapestry</item>
+    </string-array>
+
+    <string-array name="golden_rule">
+        <item>amara</item>
+        <item>Golden Rule</item>
+        <item>mindfulness</item>
+        <item>laid_bare</item>
+        <item>helping_hands</item>
+    </string-array>
+
+    <string-array name="nimbus">
+        <item>amara</item>
+        <item>Nimbus</item>
+        <item>tempest</item>
+        <item>conflux</item>
+        <item>violent_tapestry</item>
+    </string-array>
+
+    <string-array name="phasezerker">
+        <item>amara</item>
+        <item>Phasezerker</item>
+        <item>anima</item>
+        <item>conflux</item>
+        <item>clarity</item>
+    </string-array>
+
+    <string-array name="spiritual_driver">
+        <item>amara</item>
+        <item>Spiritual Driver</item>
+        <item>mindfulness</item>
+        <item>helping_hands</item>
+        <item>clarity</item>
+    </string-array>
+
+    <string-array name="stone">
+        <item>amara</item>
+        <item>Stone</item>
+        <item>do_harm</item>
+        <item>violent_tapestry</item>
+        <item>awakening</item>
+    </string-array>
+
+
+    <!--fl4k ___________________________________________________________________________________ -->
     <string name="fl4k">Fl4k</string>
     <string-array name="fl4k_mods">
+        <item>bounty_hunter</item>
+        <item>cosmic_stalker</item>
+        <item>de4deye</item>
+        <item>friend_bot</item>
+        <item>r4kk_p4k</item>
+        <item>rakk_commander</item>
+        <item>red_fang</item>
+        <item>st4ckbot</item>
+        <item>tr4iner</item>
+    </string-array>
+
+    <string-array name="fl4k_mods_names">
         <item>Bounty Hunter</item>
         <item>Cosmic Stalker</item>
         <item>DE4DEYE</item>
@@ -42,20 +133,182 @@
         <item>Tr4iner</item>
     </string-array>
 
+    <string-array name="bounty_hunter">
+        <item>fl4k</item>
+        <item>Bounty Hunter</item>
+        <item>hunters_eye</item>
+        <item>the_most_dangerous_game</item>
+        <item>frenzy</item>
+    </string-array>
+
+    <string-array name="cosmic_stalker">
+        <item>fl4k</item>
+        <item>Cosmic Stalker</item>
+        <item>interplanetary_stalker</item>
+        <item>hunters_eye</item>
+        <item>big_game</item>
+    </string-array>
+
+    <string-array name="de4deye">
+        <item>fl4k</item>
+        <item>DE4DEYE</item>
+        <item>two_fang</item>
+        <item>go_for_the_eyes</item>
+        <item>the_fast_and_the_furryous</item>
+    </string-array>
+
+    <string-array name="friend_bot">
+        <item>fl4k</item>
+        <item>Friend-Bot</item>
+        <item>psycho_head_on_a_stick</item>
+        <item>barbaric_yawp</item>
+        <item>all_my_bffs</item>
+    </string-array>
+
+    <string-array name="r4kk_p4k">
+        <item>fl4k</item>
+        <item>R4kk P4k</item>
+        <item>grim_harvest</item>
+        <item>pack_tactics</item>
+        <item>head_count</item>
+    </string-array>
+
+    <string-array name="rakk_commander">
+        <item>fl4k</item>
+        <item>Rakk Commander</item>
+        <item>ferocity</item>
+        <item>he_bites</item>
+        <item>eager_to_impress</item>
+    </string-array>
+
+    <string-array name="red_fang">
+        <item>fl4k</item>
+        <item>Red Fang</item>
+        <item>ferocity</item>
+        <item>he_bites</item>
+        <item>eager_to_impress</item>
+    </string-array>
+
+    <string-array name="st4ckbot">
+        <item>fl4k</item>
+        <item>St4ckbot</item>
+        <item>hunters_eye</item>
+        <item>pack_tactics</item>
+        <item>the_fast_and_the_furryous</item>
+    </string-array>
+
+    <string-array name="tr4iner">
+        <item>fl4k</item>
+        <item>Tr4iner</item>
+        <item>grim_harvest</item>
+        <item>pack_tactics</item>
+        <item>ferocity</item>
+    </string-array>
+
+
+    <!--moze ___________________________________________________________________________________ -->
     <string name="moze">Moze</string>
     <string-array name="moze_mods">
+        <item>bear_trooper</item>
+        <item>blast_master</item>
+        <item>bloodletter</item>
+        <item>green_monster</item>
+        <item>mind_sweeper</item>
+        <item>raging_bear</item>
+        <item>rocketeer</item>
+        <item>sapper</item>
+    </string-array>
+
+    <string-array name="moze_mods_names">
         <item>Bear Trooper</item>
         <item>Blast Master</item>
         <item>Bloodletter</item>
-        <item>Sapper</item>
         <item>Green Monster</item>
         <item>Mind Sweeper</item>
         <item>Raging Bear</item>
         <item>Rocketeer</item>
+        <item>Sapper</item>
     </string-array>
 
+    <string-array name="bear_trooper">
+        <item>moze</item>
+        <item>Bear Trooper</item>
+        <item>grizzled</item>
+        <item>stainless_steel_bear</item>
+        <item>explosive_punctuation</item>
+    </string-array>
+
+    <string-array name="blast_master">
+        <item>moze</item>
+        <item>Blast Master</item>
+        <item>pull_the_holy_pin</item>
+        <item>vampyr</item>
+        <item>redistribution</item>
+    </string-array>
+
+    <string-array name="bloodletter">
+        <item>moze</item>
+        <item>Bloodletter</item>
+        <item>thin_red_line</item>
+        <item>desperate_measures</item>
+        <item>phalanx_doctrine</item>
+    </string-array>
+
+    <string-array name="green_monster">
+        <item>moze</item>
+        <item>Green Monster</item>
+        <item>the_iron_bank</item>
+        <item>click_click</item>
+        <item>scorching_rpms</item>
+    </string-array>
+
+    <string-array name="mind_sweeper">
+        <item>moze</item>
+        <item>Mind Sweeper</item>
+        <item>fire_in_the_skag_den</item>
+        <item>torgue_cross_promotion</item>
+        <item>redistribution</item>
+    </string-array>
+
+    <string-array name="raging_bear">
+        <item>moze</item>
+        <item>Raging Bear</item>
+        <item>stoke_the_embers</item>
+        <item>stainless_steel_bear</item>
+        <item>deadlines</item>
+    </string-array>
+
+    <string-array name="rocketeer">
+        <item>moze</item>
+        <item>Rocketeer</item>
+        <item>fire_in_the_skag_den</item>
+        <item>torgue_cross_promotion</item>
+        <item>cloud_of_lead</item>
+    </string-array>
+
+    <string-array name="sapper">
+        <item>moze</item>
+        <item>Sapper</item>
+        <item>means_of_destruction</item>
+        <item>the_iron_bank</item>
+        <item>matched_set</item>
+    </string-array>
+
+
+    <!--zane ___________________________________________________________________________________ -->
     <string name="zane">Zane</string>
     <string-array name="zane_mods">
+        <item>antifreeze</item>
+        <item>cold_warrior</item>
+        <item>conductor</item>
+        <item>executor</item>
+        <item>infiltrator</item>
+        <item>seein_dead</item>
+        <item>shockerator</item>
+        <item>techspert</item>
+    </string-array>
+
+    <string-array name="zane_mods_names">
         <item>Antifreeze</item>
         <item>Cold Warrior</item>
         <item>Conductor</item>
@@ -64,6 +317,70 @@
         <item>Seein\' Dead</item>
         <item>Shockerator</item>
         <item>Techspert</item>
+    </string-array>
+
+    <string-array name="antifreeze">
+        <item>zane</item>
+        <item>Antifreeze</item>
+        <item>violent_speed</item>
+        <item>violent_momentum</item>
+        <item>supersonic_man</item>
+    </string-array>
+
+    <string-array name="cold_warrior">
+        <item>zane</item>
+        <item>Cold Warrior</item>
+        <item>synchronicity</item>
+        <item>trick_of_the_light</item>
+        <item>ready_for_action</item>
+    </string-array>
+
+    <string-array name="conductor">
+        <item>zane</item>
+        <item>Conductor</item>
+        <item>good_misfortune</item>
+        <item>borrowed_time</item>
+        <item>adrenaline</item>
+    </string-array>
+
+    <string-array name="executor">
+        <item>zane</item>
+        <item>Executor</item>
+        <item>violent_violence</item>
+        <item>playing_dirty</item>
+        <item>good_misfortune</item>
+    </string-array>
+
+    <string-array name="infiltrator">
+        <item>zane</item>
+        <item>Infiltrator</item>
+        <item>violent_momentum</item>
+        <item>supersonic_man</item>
+        <item>like_a_ghost</item>
+    </string-array>
+
+    <string-array name="seein_dead">
+        <item>zane</item>
+        <item>Seein\' Dead</item>
+        <item>violent_violence</item>
+        <item>donnybrook</item>
+        <item>playing_dirty</item>
+    </string-array>
+
+    <string-array name="shockerator">
+        <item>zane</item>
+        <item>Shockerator</item>
+        <item>duck_tape_mod</item>
+        <item>pocket_full_of_grenades</item>
+        <item>best_served_cold</item>
+    </string-array>
+
+    <string-array name="techspert">
+        <item>zane</item>
+        <item>Techspert</item>
+        <item>ready_for_action</item>
+        <item>rise_to_the_occasion</item>
+        <item>really_expensive_jacket</item>
     </string-array>
 
     <string name="action_settings">Settings</string>

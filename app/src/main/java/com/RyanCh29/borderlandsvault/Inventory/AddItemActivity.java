@@ -78,38 +78,49 @@ public class AddItemActivity extends AppCompatActivity {
         } else if (type.equals("grenade mod")) {
             setContentView(R.layout.activity_add_grenade_mod);
 
-        } else if (type.equals("amara")) {
+        } else if (type.equals("mod")) {
             setContentView(R.layout.activity_add_class_mod);
             image = findViewById(R.id.imageView);
-            image.setImageResource(R.drawable.class_mod_amara);
-
             TextView upperText = findViewById(R.id.upper_text_textView);
-            upperText.setText("LEGENDARY SIREN CLASS MOD");
 
-        } else if (type.equals("fl4k")) {
-            setContentView(R.layout.activity_add_class_mod);
-            image = findViewById(R.id.imageView);
-            image.setImageResource(R.drawable.class_mod_fl4k);
+            String character = extras.getString("Character");
 
-            TextView upperText = findViewById(R.id.upper_text_textView);
-            upperText.setText("LEGENDARY BEASTMASTER CLASS MOD");
+            if(character.equals("amara")) {
+                image.setImageResource(R.drawable.class_mod_amara);
+                upperText.setText("LEGENDARY SIREN CLASS MOD");
 
+            } else if(character.equals("fl4k")) {
+                image.setImageResource(R.drawable.class_mod_fl4k);
+                upperText.setText("LEGENDARY BEASTMASTER CLASS MOD");
 
-        } else if (type.equals("moze")) {
-            setContentView(R.layout.activity_add_class_mod);
-            image = findViewById(R.id.imageView);
-            image.setImageResource(R.drawable.class_mod_moze);
+            } else if(character.equals("moze")) {
+                image.setImageResource(R.drawable.class_mod_moze);
+                upperText.setText("LEGENDARY GUNNER CLASS MOD");
 
-            TextView upperText = findViewById(R.id.upper_text_textView);
-            upperText.setText("LEGENDARY GUNNER CLASS MOD");
+            } else if(character.equals("zane")) {
+                image.setImageResource(R.drawable.class_mod_zane);
+                upperText.setText("LEGENDARY OPERATIVE CLASS MOD");
 
-        } else if (type.equals("zane")) {
-            setContentView(R.layout.activity_add_class_mod);
-            image = findViewById(R.id.imageView);
-            image.setImageResource(R.drawable.class_mod_zane);
+            }
 
-            TextView upperText = findViewById(R.id.upper_text_textView);
-            upperText.setText("LEGENDARY OPERATIVE CLASS MOD");
+            String name = extras.getString("Name");
+            EditText nameEditText = findViewById(R.id.name_editText);
+            nameEditText.setText(name);
+
+            String skill1 = extras.getString("Skill 1");
+            ImageView s1 = findViewById(R.id.skill_1_imageView);
+            int id1 = getApplicationContext().getResources().getIdentifier("drawable/" + skill1, null, getApplicationContext().getPackageName());
+            s1.setImageResource(id1);
+
+            String skill2 = extras.getString("Skill 2");
+            ImageView s2 = findViewById(R.id.skill_2_imageView);
+            int id2 = getApplicationContext().getResources().getIdentifier("drawable/" + skill2, null, getApplicationContext().getPackageName());
+            s2.setImageResource(id2);
+
+            String skill3 = extras.getString("Skill 3");
+            ImageView s3 = findViewById(R.id.skill_3_imageView);
+            int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
+            s3.setImageResource(id3);
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);

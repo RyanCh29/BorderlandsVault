@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.RyanCh29.borderlandsvault.R;
 
@@ -31,18 +30,23 @@ public class ClassModDialog extends AppCompatDialogFragment {
         //get extras from activity
         //create buttons based on extras
         String[] mods = new String[0];
+        String[] modNames = new String[0];
 
         if (character == 'a') {
             mods = getResources().getStringArray(R.array.amara_mods);
+            modNames = getResources().getStringArray(R.array.amara_mods_names);
 
         } else if (character == 'f') {
             mods = getResources().getStringArray(R.array.fl4k_mods);
+            modNames = getResources().getStringArray(R.array.fl4k_mods_names);
 
         } else if (character == 'm') {
             mods = getResources().getStringArray(R.array.moze_mods);
+            modNames = getResources().getStringArray(R.array.moze_mods_names);
 
         } else if (character == 'z') {
             mods = getResources().getStringArray(R.array.zane_mods);
+            modNames = getResources().getStringArray(R.array.zane_mods_names);
 
         }
 
@@ -52,7 +56,7 @@ public class ClassModDialog extends AppCompatDialogFragment {
         for(int i = 0; i < mods.length; i++) {
             //create and configure buttons
             buttons[i] = new Button(getContext());
-            buttons[i].setText(mods[i]);
+            buttons[i].setText(modNames[i]);
 
             final int finalI = i;
             final String[] finalMods = mods;

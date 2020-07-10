@@ -317,7 +317,9 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","artifact");
             startActivity(intent);
-        } else if(choice.equals("ar")) {
+        }
+        //weapon types
+        else if(choice.equals("ar")) {
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","ar");
             startActivity(intent);
@@ -346,7 +348,9 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
             Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra("Type","smg");
             startActivity(intent);
-        } else if(choice.equals("amara")) {
+        }
+        //characters
+        else if(choice.equals("amara")) {
             openDialog(choice);
         }
         else if(choice.equals("fl4k")) {
@@ -358,7 +362,18 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         else if(choice.equals("zane")) {
             openDialog(choice);
         }
+        else {
+            int id = getApplicationContext().getResources().getIdentifier(choice, "array", getApplicationContext().getPackageName());
+            String[] mod = getResources().getStringArray(id);
 
-
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra("Type","mod");
+            intent.putExtra("Character",mod[0]);
+            intent.putExtra("Name",mod[1]);
+            intent.putExtra("Skill 1", mod[2]);
+            intent.putExtra("Skill 2", mod[3]);
+            intent.putExtra("Skill 3", mod[4]);
+            startActivity(intent);
+        }
     }
 }

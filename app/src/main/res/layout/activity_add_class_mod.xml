@@ -133,21 +133,110 @@
             app:layout_constraintEnd_toStartOf="@+id/image_right_guideline"
             app:layout_constraintStart_toStartOf="@+id/image_left_guideline" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_upper_guidelineH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.217" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_1_left_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.386" />
+
         <!--LOWER TEXT-->
 
+        <ImageView
+            android:id="@+id/skill_1_imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
+            app:layout_constraintEnd_toStartOf="@+id/skill_1_right_guidelineV"
+            app:layout_constraintStart_toStartOf="@+id/skill_1_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
+            app:srcCompat="@drawable/green_skill" />
+
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/lower_text_guidelineH2"
+            android:id="@+id/skill_1_right_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.555" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_2_left_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.57" />
+
+        <ImageView
+            android:id="@+id/skill_2_imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
+            app:layout_constraintEnd_toStartOf="@+id/skill_2_right_guidelineV"
+            app:layout_constraintStart_toStartOf="@+id/skill_2_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
+            app:srcCompat="@drawable/green_skill" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_2_right_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.74" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_3_left_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.755" />
+
+        <ImageView
+            android:id="@+id/skill_3_imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
+            app:layout_constraintEnd_toStartOf="@+id/skill_3_right_guidelineV"
+            app:layout_constraintStart_toStartOf="@+id/skill_3_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
+            app:srcCompat="@drawable/green_skill" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_3_right_guidelineV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.925" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/skill_lower_guidelineH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.365" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/description_guidelineH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.38" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/lower_text_guidelineH"
+        <TextView
+            android:id="@+id/description_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.38" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="description"
+            app:layout_constraintStart_toStartOf="@+id/image_left_guideline"
+            app:layout_constraintTop_toTopOf="@id/description_guidelineH" />
 
         <ScrollView
             android:layout_width="0dp"
