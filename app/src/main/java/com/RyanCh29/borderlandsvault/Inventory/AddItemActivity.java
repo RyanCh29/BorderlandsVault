@@ -156,6 +156,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         String score = score_edit.getText().toString();
         String lvl = lvl_edit.getText().toString();
+        //TODO: add mayhem level
         String name = name_edit.getText().toString();
 
         CSVManipulator csv = new CSVManipulator();
@@ -172,7 +173,7 @@ public class AddItemActivity extends AppCompatActivity {
         } else if (type.equals("grenade mod")) {
             csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name));
 
-        } else if (type.equals("class mod")) {
+        } else if (type.equals("mod")) {
             csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name));
 
         } else if (type.equals("artifact")) {
@@ -306,48 +307,42 @@ public class AddItemActivity extends AppCompatActivity {
         //idea 2: a blank class mod is opened and the user must choose the character and the skills from a drop down menu
         //TODO idea 3: user chooses the character in a dialog and then the specific class mod in another dialog
 
-        String[] str = new String[13 + numBonus];
+        String[] str = new String[12 + numBonus];
 
         str[0] = date;
         str[1] = score;
         str[2] = lvl;
+//        str[2] = lvl; // mayhem lvl
         str[3] = name;
         str[4] = type;
+        Bundle extras = getIntent().getExtras();
+        str[5] = extras.getString("Character");
+        str[6] = extras.getString("Skill 1");
+        str[7] = extras.getString("Skill 2");
+        str[8] = extras.getString("Skill 3");
 
-        //{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint};
+        //{date,score,lvl, name, type, character, skill 1, skill 2, skill 3, s1 points, s2 points, s3 points, bonus};
         //get data from editTexts
-        EditText dmg_edit = findViewById(R.id.dmg_editText);
-        str[5] = dmg_edit.getText().toString();
+//        EditText dmg_edit = findViewById(R.id.dmg_editText);
+//        str[9] = dmg_edit.getText().toString();
+        str[9] = "1";
 
-        EditText acc_edit = findViewById(R.id.acc_editText);
-        str[6] = acc_edit.getText().toString();
+//        EditText acc_edit = findViewById(R.id.acc_editText);
+//        str[9] = acc_edit.getText().toString();
+        str[10] = "2";
 
-        EditText hand_edit = findViewById(R.id.hand_editText);
-        str[7] = hand_edit.getText().toString();
-
-        EditText reload_edit = findViewById(R.id.reload_editText);
-        str[8] = reload_edit.getText().toString();
-
-        EditText fr_edit = findViewById(R.id.fr_editText);
-        str[9] = fr_edit.getText().toString();
-
-        EditText mag_edit = findViewById(R.id.mag_editText);
-        str[10] = mag_edit.getText().toString();
-
-        EditText element_edit = findViewById(R.id.element_editText);
-        str[11] = element_edit.getText().toString();
-
-        EditText anoint_edit = findViewById(R.id.anoint_editText);
-        str[12] = anoint_edit.getText().toString();
+//        EditText hand_edit = findViewById(R.id.hand_editText);
+//        str[11] = hand_edit.getText().toString();
+        str[11] = "3";
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
             EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[13 + i] = bonus.getText().toString();
+            str[12 + i] = bonus.getText().toString();
         }
-
+        System.out.println("saving ------------------------------------------------------------------------");
         return str;
     }
 
