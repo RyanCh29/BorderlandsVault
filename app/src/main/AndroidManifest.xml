@@ -15,7 +15,8 @@
             />
         <activity
             android:name=".Inventory.DisplayItemActivity"
-            android:parentActivityName=".Activities.InventoryActivity" />
+            android:parentActivityName=".Activities.InventoryActivity"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".Activities.SkillActivity"
             android:parentActivityName=".Activities.MainActivity" />
