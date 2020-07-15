@@ -140,7 +140,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                     final int finalI = i;
                     buttons[i].setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-                            //TODO: improve onClick functionality to better display the info
+                            //TODO: improve onClick functionality to better display the info (pretty much done)
                             Intent intent = new Intent(getBaseContext(), DisplayItemActivity.class);
                             intent.putExtra("Content",content.get(finalI));
                             startActivity(intent);

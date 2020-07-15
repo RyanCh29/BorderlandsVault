@@ -82,46 +82,7 @@ public class DisplayItemActivity extends AppCompatActivity {
         } else if (type.equals("mod")) {
             //TODO: complete activity_add_class_mod layout
             setContentView(R.layout.activity_add_class_mod);
-            image = findViewById(R.id.imageView);
-            TextView upperText = findViewById(R.id.upper_text_textView);
-
-            String character = content[5];
-            if(character.equals("amara")) {
-                image.setImageResource(R.drawable.class_mod_amara);
-                upperText.setText("LEGENDARY SIREN CLASS MOD");
-
-            } else if(character.equals("fl4k")) {
-                image.setImageResource(R.drawable.class_mod_fl4k);
-                upperText.setText("LEGENDARY BEASTMASTER CLASS MOD");
-
-            } else if(character.equals("moze")) {
-                image.setImageResource(R.drawable.class_mod_moze);
-                upperText.setText("LEGENDARY GUNNER CLASS MOD");
-
-            } else if(character.equals("zane")) {
-                image.setImageResource(R.drawable.class_mod_zane);
-                upperText.setText("LEGENDARY OPERATIVE CLASS MOD");
-
-            }
-
-            String name = content[3];
-            EditText nameEditText = findViewById(R.id.name_editText);
-            nameEditText.setText(name);
-
-            String skill1 = content[6];
-            ImageView s1 = findViewById(R.id.skill_1_imageView);
-            int id1 = getApplicationContext().getResources().getIdentifier("drawable/" + skill1, null, getApplicationContext().getPackageName());
-            s1.setImageResource(id1);
-
-            String skill2 = content[7];
-            ImageView s2 = findViewById(R.id.skill_2_imageView);
-            int id2 = getApplicationContext().getResources().getIdentifier("drawable/" + skill2, null, getApplicationContext().getPackageName());
-            s2.setImageResource(id2);
-
-            String skill3 = content[8];
-            ImageView s3 = findViewById(R.id.skill_3_imageView);
-            int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
-            s3.setImageResource(id3);
+            showClassMod();
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
@@ -274,8 +235,47 @@ public class DisplayItemActivity extends AppCompatActivity {
         EditText lvl_edit = findViewById(R.id.level_editText);
         lvl_edit.setText(content[2]);
 
-        EditText name_edit = findViewById(R.id.name_editText);
-        name_edit.setText(content[3]);
+
+        ImageView image = findViewById(R.id.imageView);
+        TextView upperText = findViewById(R.id.upper_text_textView);
+
+        String character = content[5];
+        if(character.equals("amara")) {
+            image.setImageResource(R.drawable.class_mod_amara);
+            upperText.setText("LEGENDARY SIREN CLASS MOD");
+
+        } else if(character.equals("fl4k")) {
+            image.setImageResource(R.drawable.class_mod_fl4k);
+            upperText.setText("LEGENDARY BEASTMASTER CLASS MOD");
+
+        } else if(character.equals("moze")) {
+            image.setImageResource(R.drawable.class_mod_moze);
+            upperText.setText("LEGENDARY GUNNER CLASS MOD");
+
+        } else if(character.equals("zane")) {
+            image.setImageResource(R.drawable.class_mod_zane);
+            upperText.setText("LEGENDARY OPERATIVE CLASS MOD");
+
+        }
+
+        String name = content[3];
+        EditText nameEditText = findViewById(R.id.name_editText);
+        nameEditText.setText(name);
+
+        String skill1 = content[6];
+        ImageView s1 = findViewById(R.id.skill_1_imageView);
+        int id1 = getApplicationContext().getResources().getIdentifier("drawable/" + skill1, null, getApplicationContext().getPackageName());
+        s1.setImageResource(id1);
+
+        String skill2 = content[7];
+        ImageView s2 = findViewById(R.id.skill_2_imageView);
+        int id2 = getApplicationContext().getResources().getIdentifier("drawable/" + skill2, null, getApplicationContext().getPackageName());
+        s2.setImageResource(id2);
+
+        String skill3 = content[8];
+        ImageView s3 = findViewById(R.id.skill_3_imageView);
+        int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
+        s3.setImageResource(id3);
 
         //TODO: display info
 
