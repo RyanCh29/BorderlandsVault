@@ -126,6 +126,7 @@ public class AddItemActivity extends AppCompatActivity {
             int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
             s3.setImageResource(id3);
 
+            //TODO: give the buttons onClick functionality programmatically
             Button skillButton = findViewById(R.id.skill_1_button);
             skill1Id = skillButton.getId();
             skillButton = findViewById(R.id.skill_2_button);

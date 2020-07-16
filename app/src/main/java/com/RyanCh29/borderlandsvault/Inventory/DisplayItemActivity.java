@@ -279,6 +279,22 @@ public class DisplayItemActivity extends AppCompatActivity {
 
         //TODO: display info
 
+        EditText skill1Points = findViewById(R.id.skill_1_points_editText);
+        skill1Points.setText(content[9]);
+
+        EditText skill2Points = findViewById(R.id.skill_2_points_editText);
+        skill2Points.setText(content[10]);
+
+        EditText skill3Points = findViewById(R.id.skill_3_points_editText);
+        skill3Points.setText(content[11]);
+
+        //get all the bonus stats
+        LinearLayout lay = findViewById(R.id.bonus_layout);
+        for (int i = 12; i < content.length; i++) {
+            addBonusStat(content[i]);
+
+        }
+
     }
 
     public void showArtifact() {
