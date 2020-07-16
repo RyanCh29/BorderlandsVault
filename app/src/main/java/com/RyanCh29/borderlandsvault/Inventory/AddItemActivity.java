@@ -26,6 +26,10 @@ public class AddItemActivity extends AppCompatActivity {
     private Button addBonusButton;
     private int numBonus = 0;
 
+    private int skill1Id = 0;
+    private int skill2Id = 0;
+    private int skill3Id = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +125,13 @@ public class AddItemActivity extends AppCompatActivity {
             ImageView s3 = findViewById(R.id.skill_3_imageView);
             int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
             s3.setImageResource(id3);
+
+            Button skillButton = findViewById(R.id.skill_1_button);
+            skill1Id = skillButton.getId();
+            skillButton = findViewById(R.id.skill_2_button);
+            skill2Id = skillButton.getId();
+            skillButton = findViewById(R.id.skill_3_button);
+            skill3Id = skillButton.getId();
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
@@ -323,17 +334,19 @@ public class AddItemActivity extends AppCompatActivity {
 
         //{date,score,lvl, name, type, character, skill 1, skill 2, skill 3, s1 points, s2 points, s3 points, bonus};
         //get data from editTexts
-//        EditText dmg_edit = findViewById(R.id.dmg_editText);
-//        str[9] = dmg_edit.getText().toString();
-        str[9] = "1";
 
-//        EditText acc_edit = findViewById(R.id.acc_editText);
-//        str[9] = acc_edit.getText().toString();
-        str[10] = "2";
+        EditText skill1Points = findViewById(R.id.skill_1_points_editText);
+        str[9] = skill1Points.getText().toString();
+//        str[9] = "1";
 
-//        EditText hand_edit = findViewById(R.id.hand_editText);
-//        str[11] = hand_edit.getText().toString();
-        str[11] = "3";
+        EditText skill2Points = findViewById(R.id.skill_2_points_editText);
+        str[10] = skill2Points.getText().toString();
+//        str[10] = "2";
+
+        EditText skill3Points = findViewById(R.id.skill_3_points_editText);
+        str[11] = skill3Points.getText().toString();
+//        str[11] = "3";
+
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
@@ -342,8 +355,54 @@ public class AddItemActivity extends AppCompatActivity {
 
             str[12 + i] = bonus.getText().toString();
         }
-        System.out.println("saving ------------------------------------------------------------------------");
         return str;
+    }
+
+    public void increasePoint(View view) {
+        TextView pointsToIncrease;
+        if(view.getId() == skill1Id) {
+            //increase points on skill 1
+            pointsToIncrease = findViewById(R.id.skill_1_points_editText);
+            String temp = pointsToIncrease.getText().toString();
+            temp = temp.substring(1);
+
+            int points = Integer.parseInt(temp)+1;
+            temp = "+" + points;
+
+            pointsToIncrease.setText(temp);
+
+        } else if(view.getId() == skill2Id) {
+            //increase points on skill 2
+            pointsToIncrease = findViewById(R.id.skill_2_points_editText);
+            String temp = pointsToIncrease.getText().toString();
+            temp = temp.substring(1);
+
+            int points = Integer.parseInt(temp)+1;
+            temp = "+" + points;
+
+            pointsToIncrease.setText(temp);
+
+        } else if(view.getId() == skill3Id) {
+            //increase points on skill 3
+            pointsToIncrease = findViewById(R.id.skill_3_points_editText);
+            String temp = pointsToIncrease.getText().toString();
+            temp = temp.substring(1);
+
+            int points = Integer.parseInt(temp)+1;
+            temp = "+" + points;
+
+            pointsToIncrease.setText(temp);
+
+        } else {
+            System.out.println("error---------------------------------------------------------------------------------------");
+        }
+
+
+
+    }
+
+    public void decreasePoints(View view) {
+        //TODO: on hold the points get reset to 0
     }
 
     public String[] saveArtifact(String date, String score, String lvl, String name) {

@@ -159,6 +159,31 @@
             app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
             app:srcCompat="@drawable/green_skill" />
 
+        <Button
+            android:id="@+id/skill_1_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:onClick="increasePoint"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
+            app:layout_constraintEnd_toStartOf="@+id/skill_1_right_guidelineV"
+            app:layout_constraintStart_toStartOf="@+id/skill_1_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
+
+        <EditText
+            android:id="@+id/skill_1_points_editText"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:background="@null"
+            android:ems="2"
+            android:inputType="textPersonName"
+            android:text="+0"
+            android:textColor="#ffffcb"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/skill_1_right_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/skill_1_right_guidelineV"
             android:layout_width="wrap_content"
@@ -179,9 +204,37 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
             app:layout_constraintEnd_toStartOf="@+id/skill_2_right_guidelineV"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/skill_2_left_guidelineV"
             app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/green_skill" />
+
+        <Button
+            android:id="@+id/skill_2_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:onClick="increasePoint"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"
+            app:layout_constraintEnd_toEndOf="@+id/skill_2_imageView"
+            app:layout_constraintStart_toStartOf="@+id/skill_2_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
+
+        <EditText
+            android:id="@+id/skill_2_points_editText"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="2dp"
+            android:background="@null"
+            android:ems="2"
+            android:inputType="textPersonName"
+            android:text="+0"
+            android:textColor="#ffffcb"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/skill_2_right_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/skill_2_right_guidelineV"
@@ -206,6 +259,31 @@
             app:layout_constraintStart_toStartOf="@+id/skill_3_left_guidelineV"
             app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH"
             app:srcCompat="@drawable/green_skill" />
+
+        <Button
+            android:id="@+id/skill_3_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:onClick="increasePoint"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/skill_3_imageView"
+            app:layout_constraintEnd_toStartOf="@+id/skill_3_right_guidelineV"
+            app:layout_constraintStart_toStartOf="@+id/skill_3_left_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
+
+        <EditText
+            android:id="@+id/skill_3_points_editText"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:background="@null"
+            android:ems="2"
+            android:inputType="textPersonName"
+            android:text="+0"
+            android:textColor="#ffffcb"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/skill_3_right_guidelineV"
+            app:layout_constraintTop_toTopOf="@+id/skill_upper_guidelineH" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/skill_3_right_guidelineV"
