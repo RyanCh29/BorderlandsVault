@@ -164,6 +164,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@null"
+            android:longClickable="true"
             android:onClick="increasePoint"
             android:text="Button"
             app:layout_constraintBottom_toTopOf="@+id/skill_lower_guidelineH"

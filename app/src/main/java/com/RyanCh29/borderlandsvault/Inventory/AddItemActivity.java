@@ -126,13 +126,55 @@ public class AddItemActivity extends AppCompatActivity {
             int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
             s3.setImageResource(id3);
 
-            //TODO: give the buttons onClick functionality programmatically
-            Button skillButton = findViewById(R.id.skill_1_button);
-            skill1Id = skillButton.getId();
-            skillButton = findViewById(R.id.skill_2_button);
-            skill2Id = skillButton.getId();
-            skillButton = findViewById(R.id.skill_3_button);
-            skill3Id = skillButton.getId();
+            //TODO: give the buttons onLongClick functionality programmatically
+            Button skillButton1 = findViewById(R.id.skill_1_button);
+            skill1Id = skillButton1.getId();
+
+            skillButton1.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    // TODO Auto-generated method stub
+                    //initialize the text views and set the text to "+0"
+
+                    TextView decrease = findViewById(R.id.skill_1_points_editText);
+                    decrease.setText("+0");
+
+                    return true;
+                }
+            });
+
+            Button skillButton2 = findViewById(R.id.skill_2_button);
+            skill2Id = skillButton2.getId();
+            skillButton2.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    // TODO Auto-generated method stub
+                    //initialize the text views and set the text to "+0"
+
+                    TextView decrease = findViewById(R.id.skill_2_points_editText);
+                    decrease.setText("+0");
+
+                    return true;
+                }
+            });
+
+            Button skillButton3 = findViewById(R.id.skill_3_button);
+            skill3Id = skillButton3.getId();
+            skillButton3.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    // TODO Auto-generated method stub
+                    //initialize the text views and set the text to "+0"
+
+                    TextView decrease = findViewById(R.id.skill_3_points_editText);
+                    decrease.setText("+0");
+
+                    return true;
+                }
+            });
+
+
+
 
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
@@ -367,10 +409,12 @@ public class AddItemActivity extends AppCompatActivity {
             String temp = pointsToIncrease.getText().toString();
             temp = temp.substring(1);
 
-            int points = Integer.parseInt(temp)+1;
-            temp = "+" + points;
+            int points = Integer.parseInt(temp);
+            if (points < 5) {
+                temp = "+" + (points+1);
+                pointsToIncrease.setText(temp);
 
-            pointsToIncrease.setText(temp);
+            }
 
         } else if(view.getId() == skill2Id) {
             //increase points on skill 2
@@ -378,10 +422,12 @@ public class AddItemActivity extends AppCompatActivity {
             String temp = pointsToIncrease.getText().toString();
             temp = temp.substring(1);
 
-            int points = Integer.parseInt(temp)+1;
-            temp = "+" + points;
+            int points = Integer.parseInt(temp);
+            if (points < 5) {
+                temp = "+" + (points+1);
+                pointsToIncrease.setText(temp);
 
-            pointsToIncrease.setText(temp);
+            }
 
         } else if(view.getId() == skill3Id) {
             //increase points on skill 3
@@ -389,10 +435,12 @@ public class AddItemActivity extends AppCompatActivity {
             String temp = pointsToIncrease.getText().toString();
             temp = temp.substring(1);
 
-            int points = Integer.parseInt(temp)+1;
-            temp = "+" + points;
+            int points = Integer.parseInt(temp);
+            if (points < 5) {
+                temp = "+" + (points+1);
+                pointsToIncrease.setText(temp);
 
-            pointsToIncrease.setText(temp);
+            }
 
         } else {
             System.out.println("error---------------------------------------------------------------------------------------");
@@ -402,9 +450,6 @@ public class AddItemActivity extends AppCompatActivity {
 
     }
 
-    public void decreasePoints(View view) {
-        //TODO: on hold the points get reset to 0
-    }
 
     public String[] saveArtifact(String date, String score, String lvl, String name) {
         String[] str = new String[16 + numBonus];
