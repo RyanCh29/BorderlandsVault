@@ -133,7 +133,6 @@ public class AddItemActivity extends AppCompatActivity {
             skillButton1.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    // TODO Auto-generated method stub
                     //initialize the text views and set the text to "+0"
 
                     TextView decrease = findViewById(R.id.skill_1_points_editText);
@@ -148,7 +147,6 @@ public class AddItemActivity extends AppCompatActivity {
             skillButton2.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    // TODO Auto-generated method stub
                     //initialize the text views and set the text to "+0"
 
                     TextView decrease = findViewById(R.id.skill_2_points_editText);
@@ -163,7 +161,6 @@ public class AddItemActivity extends AppCompatActivity {
             skillButton3.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    // TODO Auto-generated method stub
                     //initialize the text views and set the text to "+0"
 
                     TextView decrease = findViewById(R.id.skill_3_points_editText);
@@ -356,10 +353,6 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     public String[] saveClassMod(String date, String score, String lvl, String name) {
-        //TODO: figure out best way to implement adding class mod
-        //idea 1: similar to adding weapons it opens multiple dialogs starting when class mod is pressed a dialog for choosing character is opened then for the specific class mod
-        //idea 2: a blank class mod is opened and the user must choose the character and the skills from a drop down menu
-        //TODO idea 3: user chooses the character in a dialog and then the specific class mod in another dialog
 
         String[] str = new String[12 + numBonus];
 

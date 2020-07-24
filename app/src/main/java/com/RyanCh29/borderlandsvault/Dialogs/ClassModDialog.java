@@ -66,7 +66,6 @@ public class ClassModDialog extends AppCompatDialogFragment {
                 }
             });
 
-            //TODO: add buttons to the layout ot be able to input the skill point for each skill
             layout.addView(buttons[i]);
         }
 

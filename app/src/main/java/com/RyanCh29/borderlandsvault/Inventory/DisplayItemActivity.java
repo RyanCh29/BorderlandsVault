@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.RyanCh29.borderlandsvault.R;
-
-import java.util.Arrays;
 
 import static android.text.InputType.TYPE_CLASS_TEXT;
 
@@ -80,7 +77,6 @@ public class DisplayItemActivity extends AppCompatActivity {
             showGrenadeMod();
 
         } else if (type.equals("mod")) {
-            //TODO: complete activity_add_class_mod layout
             setContentView(R.layout.activity_add_class_mod);
             showClassMod();
 
@@ -228,7 +224,6 @@ public class DisplayItemActivity extends AppCompatActivity {
     }
 
     public void showClassMod() {
-        //TODO: figure out best way to implement adding class mod
         EditText score_edit = findViewById(R.id.score_editText);
         score_edit.setText(content[1]);
 
@@ -276,8 +271,6 @@ public class DisplayItemActivity extends AppCompatActivity {
         ImageView s3 = findViewById(R.id.skill_3_imageView);
         int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
         s3.setImageResource(id3);
-
-        //TODO: display info
 
         EditText skill1Points = findViewById(R.id.skill_1_points_editText);
         skill1Points.setText(content[9]);
