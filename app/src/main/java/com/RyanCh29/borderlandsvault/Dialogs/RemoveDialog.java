@@ -2,6 +2,7 @@ package com.RyanCh29.borderlandsvault.Dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,24 +20,24 @@ public class RemoveDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_remove_item, null);
 
-        builder.setView(view);
+        builder.setMessage("Are you sure you want to delete this item?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        listener.getChoice("remove");
+                        dialog.cancel();
 
-        Button yes = view.findViewById(R.id.yes_button);
-        yes.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                listener.getChoice("remove");
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        listener.getChoice("remove");
+                        dialog.cancel();
 
-            }
-        });
-        Button no = view.findViewById(R.id.no_button);
-        no.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                listener.getChoice("do not remove");
-            }
-        });
+                    }
+                });
 
         return builder.create();
     }

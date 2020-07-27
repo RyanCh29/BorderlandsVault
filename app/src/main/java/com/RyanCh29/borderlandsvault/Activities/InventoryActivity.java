@@ -353,7 +353,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         } else if(c.equals("remove")) {
             RemoveDialog removeDialog = new RemoveDialog();
             removeDialog.show(getSupportFragmentManager(),"Remove dialog");
-            //TODO: figure out how to close the dialog after pressing one of the buttons
         }
 
     }
