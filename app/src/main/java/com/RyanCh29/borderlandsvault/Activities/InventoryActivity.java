@@ -267,7 +267,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         //open choice dialog
         //user chooses item type
         //new activity is created where the info is entered
-        openDialog(choice); // choice dialog
+        openDialog("add"); // choice dialog
         choice = ""; // reset choice
     }
 
@@ -308,7 +308,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
     //give parameter for which dialog to open
     public void openDialog(String c) {
 
-        if(c.equals("")) {
+        if(c.equals("add")) {
             ChoiceDialog choiceDialog = new ChoiceDialog();
             choiceDialog.show(getSupportFragmentManager(),"choice dialog");
         } else if(c.equals("weapon")) {
