@@ -24,9 +24,8 @@
             android:name=".Activities.WikiActivity"
             android:parentActivityName=".Activities.MainActivity" />
         <activity
-            android:name=".Activities.InventoryActivity"
-            android:parentActivityName=".Activities.MainActivity" />
-        <activity android:name=".Activities.MainActivity">
+            android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.InventoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

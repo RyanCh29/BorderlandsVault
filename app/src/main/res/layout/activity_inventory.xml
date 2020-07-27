@@ -6,24 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".Activities.InventoryActivity">
 
+    <!--android:onClick="startMainActivity" -->
     <Button
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/menubar_mission_icon"
-        android:onClick="startMainActivity"
+
         app:layout_constraintEnd_toStartOf="@+id/wikiButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--android:onClick="startWikiActivity"-->
     <Button
         android:id="@+id/wikiButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/menubar_map_icon"
-        android:onClick="startWikiActivity"
+
         app:layout_constraintBaseline_toBaselineOf="@+id/homeButton"
         app:layout_constraintEnd_toStartOf="@+id/inventoryButton"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,12 +41,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/wikiButton" />
 
+    <!--android:onClick="startSkillActivity"-->
     <Button
         android:id="@+id/buildsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/menubar_skill_icon"
-        android:onClick="startSkillActivity"
+
         app:layout_constraintBaseline_toBaselineOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
