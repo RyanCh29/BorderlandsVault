@@ -118,36 +118,39 @@ public class DisplayItemActivity extends AppCompatActivity {
         EditText name_edit = findViewById(R.id.name_editText);
         name_edit.setText(content[3]);
 
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
+        mayhem_edit.setText("Mayhem Level: " + content[5]);
+
         //{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint,bonuses...};
         //put data into editTexts
         EditText dmg_edit = findViewById(R.id.dmg_editText);
-        dmg_edit.setText(content[5]);
+        dmg_edit.setText(content[6]);
 
         EditText acc_edit = findViewById(R.id.acc_editText);
-        acc_edit.setText(content[6]);
+        acc_edit.setText(content[7]);
 
         EditText hand_edit = findViewById(R.id.hand_editText);
-        hand_edit.setText(content[7]);
+        hand_edit.setText(content[8]);
 
         EditText reload_edit = findViewById(R.id.reload_editText);
-        reload_edit.setText(content[8]);
+        reload_edit.setText(content[9]);
 
         EditText fr_edit = findViewById(R.id.fr_editText);
-        fr_edit.setText(content[9]);
+        fr_edit.setText(content[10]);
 
         EditText mag_edit = findViewById(R.id.mag_editText);
-        mag_edit.setText(content[10]);
+        mag_edit.setText(content[11]);
 
         EditText element_edit = findViewById(R.id.element_editText);
-        element_edit.setText(content[11]);
+        element_edit.setText(content[12]);
 
         EditText anoint_edit = findViewById(R.id.anoint_editText);
-        anoint_edit.setText(content[12]);
+        anoint_edit.setText(content[13]);
 
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for (int i = 13; i < content.length; i++) {
+        for (int i = 14; i < content.length; i++) {
             addBonusStat(content[i]);
 
         }
@@ -164,16 +167,55 @@ public class DisplayItemActivity extends AppCompatActivity {
         EditText name_edit = findViewById(R.id.name_editText);
         name_edit.setText(content[3]);
 
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
+        mayhem_edit.setText("Mayhem Level: " + content[5]);
+
         //{date,score,lvl,name,type,capacity,delay,rate,element,anoint,bonuses...};
         //put data into editTexts
         EditText cap_edit = findViewById(R.id.cap_editText);
-        cap_edit.setText(content[5]);
+        cap_edit.setText(content[6]);
 
         EditText delay_edit = findViewById(R.id.delay_editText);
-        delay_edit.setText(content[6]);
+        delay_edit.setText(content[7]);
 
         EditText rate_edit = findViewById(R.id.rate_editText);
-        rate_edit.setText(content[7]);
+        rate_edit.setText(content[8]);
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        element_edit.setText(content[9]);
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        anoint_edit.setText(content[10]);
+
+
+        //get all the bonus stats
+        LinearLayout lay = findViewById(R.id.bonus_layout);
+        for (int i = 11; i < content.length; i++) {
+            addBonusStat(content[i]);
+
+        }
+    }
+
+    public void showGrenadeMod() {
+        EditText score_edit = findViewById(R.id.score_editText);
+        score_edit.setText(content[1]);
+
+        EditText lvl_edit = findViewById(R.id.level_editText);
+        lvl_edit.setText(content[2]);
+
+        EditText name_edit = findViewById(R.id.name_editText);
+        name_edit.setText(content[3]);
+
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
+        mayhem_edit.setText("Mayhem Level: " + content[5]);
+
+        //{date,score,lvl, name, type, dmg, radius,element,anoint, bonuses...};
+        //put data into editTexts
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        dmg_edit.setText(content[6]);
+
+        EditText radius_edit = findViewById(R.id.radius_editText);
+        radius_edit.setText(content[7]);
 
         EditText element_edit = findViewById(R.id.element_editText);
         element_edit.setText(content[8]);
@@ -190,46 +232,12 @@ public class DisplayItemActivity extends AppCompatActivity {
         }
     }
 
-    public void showGrenadeMod() {
-        EditText score_edit = findViewById(R.id.score_editText);
-        score_edit.setText(content[1]);
-
-        EditText lvl_edit = findViewById(R.id.level_editText);
-        lvl_edit.setText(content[2]);
-
-        EditText name_edit = findViewById(R.id.name_editText);
-        name_edit.setText(content[3]);
-
-        //{date,score,lvl, name, type, dmg, radius,element,anoint, bonuses...};
-        //put data into editTexts
-        EditText dmg_edit = findViewById(R.id.dmg_editText);
-        dmg_edit.setText(content[5]);
-
-        EditText radius_edit = findViewById(R.id.radius_editText);
-        radius_edit.setText(content[6]);
-
-        EditText element_edit = findViewById(R.id.element_editText);
-        element_edit.setText(content[7]);
-
-        EditText anoint_edit = findViewById(R.id.anoint_editText);
-        anoint_edit.setText(content[8]);
-
-
-        //get all the bonus stats
-        LinearLayout lay = findViewById(R.id.bonus_layout);
-        for (int i = 9; i < content.length; i++) {
-            addBonusStat(content[i]);
-
-        }
-    }
-
     public void showClassMod() {
         EditText score_edit = findViewById(R.id.score_editText);
         score_edit.setText(content[1]);
 
         EditText lvl_edit = findViewById(R.id.level_editText);
         lvl_edit.setText(content[2]);
-
 
         ImageView image = findViewById(R.id.imageView);
         TextView upperText = findViewById(R.id.upper_text_textView);
@@ -253,9 +261,11 @@ public class DisplayItemActivity extends AppCompatActivity {
 
         }
 
-        String name = content[3];
         EditText nameEditText = findViewById(R.id.name_editText);
-        nameEditText.setText(name);
+        nameEditText.setText(content[3]);
+
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
+        mayhem_edit.setText("Mayhem Level: " + content[5]);
 
         String skill1 = content[6];
         ImageView s1 = findViewById(R.id.skill_1_imageView);
@@ -300,44 +310,47 @@ public class DisplayItemActivity extends AppCompatActivity {
         EditText name_edit = findViewById(R.id.name_editText);
         name_edit.setText(content[3]);
 
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
+        mayhem_edit.setText("Mayhem Level: " + content[5]);
+
         //get data from editTexts
         EditText line1_edit = findViewById(R.id.line1_left_editText);
-        line1_edit.setText(content[5]);
+        line1_edit.setText(content[6]);
 
         EditText line2_left = findViewById(R.id.line2_left_editText);
-        line2_left.setText(content[6]);
+        line2_left.setText(content[7]);
 
         EditText line2_right = findViewById(R.id.line2_right_editText);
-        line2_right.setText(content[7]);
+        line2_right.setText(content[8]);
 
         EditText line3_left = findViewById(R.id.line3_left_editText);
-        line3_left.setText(content[8]);
+        line3_left.setText(content[9]);
 
         EditText line3_right = findViewById(R.id.line3_right_editText);
-        line3_right.setText(content[9]);
+        line3_right.setText(content[10]);
 
         EditText line4_left = findViewById(R.id.line4_left_editText);
-        line4_left.setText(content[10]);
+        line4_left.setText(content[11]);
 
         EditText line4_right = findViewById(R.id.line4_right_editText);
-        line4_right.setText(content[11]);
+        line4_right.setText(content[12]);
 
         //stats
         EditText stat1_edit = findViewById(R.id.stat1_editText);
-        stat1_edit.setText(content[12]);
+        stat1_edit.setText(content[13]);
 
         EditText stat2_edit = findViewById(R.id.stat2_editText);
-        stat2_edit.setText(content[13]);
+        stat2_edit.setText(content[14]);
 
         EditText stat3_edit = findViewById(R.id.stat3_editText);
-        stat3_edit.setText(content[14]);
+        stat3_edit.setText(content[15]);
 
         EditText stat4_edit = findViewById(R.id.stat4_editText);
-        stat4_edit.setText(content[15]);
+        stat4_edit.setText(content[16]);
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
-        for (int i = 16; i < content.length; i++) {
+        for (int i = 17; i < content.length; i++) {
             addBonusStat(content[i]);
 
         }

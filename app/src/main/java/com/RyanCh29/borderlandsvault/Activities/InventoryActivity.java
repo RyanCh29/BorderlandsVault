@@ -146,7 +146,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                         }
                     });
 
-                    //TODO: add onLongClick for removing items (long click opens a dialog asking for conformation of removal)
                     buttons[i].setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
@@ -443,6 +442,5 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
             startActivity(intent);
         }
     }
-    //TODO: add functionality to remove items
     //TODO: add functionality to edit items
 }

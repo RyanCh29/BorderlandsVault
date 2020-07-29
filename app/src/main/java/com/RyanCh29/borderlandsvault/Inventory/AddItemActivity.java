@@ -126,7 +126,6 @@ public class AddItemActivity extends AppCompatActivity {
             int id3 = getApplicationContext().getResources().getIdentifier("drawable/" + skill3, null, getApplicationContext().getPackageName());
             s3.setImageResource(id3);
 
-            //TODO: give the buttons onLongClick functionality programmatically
             Button skillButton1 = findViewById(R.id.skill_1_button);
             skill1Id = skillButton1.getId();
 
@@ -204,11 +203,13 @@ public class AddItemActivity extends AppCompatActivity {
         EditText score_edit = findViewById(R.id.score_editText);
         EditText lvl_edit = findViewById(R.id.level_editText);
         EditText name_edit = findViewById(R.id.name_editText);
+        EditText mayhem_edit = findViewById(R.id.mayhem_editText);
 
         String score = score_edit.getText().toString();
         String lvl = lvl_edit.getText().toString();
-        //TODO: add mayhem level
         String name = name_edit.getText().toString();
+        //TODO: add mayhem level
+        String mayhem = mayhem_edit.getText().toString();
 
         CSVManipulator csv = new CSVManipulator();
 
@@ -216,72 +217,111 @@ public class AddItemActivity extends AppCompatActivity {
         //check type variable for the proper file
 
         if (type.equals("ar") || type.equals("launcher") || type.equals("pistol") || type.equals("shotgun") || type.equals("sniper") || type.equals("smg")) {
-            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_weapons.csv", saveWeapon(date, score, lvl, name));
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_weapons.csv", saveWeapon(date, score, lvl, name, mayhem));
 
         } else if (type.equals("shield")) {
-            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_shields.csv", saveShield(date, score, lvl, name));
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_shields.csv", saveShield(date, score, lvl, name, mayhem));
 
         } else if (type.equals("grenade mod")) {
-            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name));
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_grenadeMods.csv", saveGrenadeMod(date, score, lvl, name, mayhem));
 
         } else if (type.equals("mod")) {
-            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name));
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_classMods.csv", saveClassMod(date, score, lvl, name, mayhem));
 
         } else if (type.equals("artifact")) {
-            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv", saveArtifact(date, score, lvl, name));
+            csv.CSVAppend(getApplicationContext(), "Borderlands_User_CSV_artifacts.csv", saveArtifact(date, score, lvl, name, mayhem));
 
         }
 
     }
 
 
-    public String[] saveWeapon(String date, String score, String lvl, String name) {
-        String[] str = new String[13 + numBonus];
+    public String[] saveWeapon(String date, String score, String lvl, String name, String mayhem) {
+        String[] str = new String[14 + numBonus];
 
         str[0] = date;
         str[1] = score;
         str[2] = lvl;
         str[3] = name;
         str[4] = type;
+        str[5] = mayhem;
 
         //{date,score,lvl, name, type, dmg, accuracy,handling,reload,fireRate,magazine,element,anoint,bonuses...};
         //get data from editTexts
         EditText dmg_edit = findViewById(R.id.dmg_editText);
-        str[5] = dmg_edit.getText().toString();
+        str[6] = dmg_edit.getText().toString();
 
         EditText acc_edit = findViewById(R.id.acc_editText);
-        str[6] = acc_edit.getText().toString();
+        str[7] = acc_edit.getText().toString();
 
         EditText hand_edit = findViewById(R.id.hand_editText);
-        str[7] = hand_edit.getText().toString();
+        str[8] = hand_edit.getText().toString();
 
         EditText reload_edit = findViewById(R.id.reload_editText);
-        str[8] = reload_edit.getText().toString();
+        str[9] = reload_edit.getText().toString();
 
         EditText fr_edit = findViewById(R.id.fr_editText);
-        str[9] = fr_edit.getText().toString();
+        str[10] = fr_edit.getText().toString();
 
         EditText mag_edit = findViewById(R.id.mag_editText);
-        str[10] = mag_edit.getText().toString();
+        str[11] = mag_edit.getText().toString();
 
         EditText element_edit = findViewById(R.id.element_editText);
-        str[11] = element_edit.getText().toString();
+        str[12] = element_edit.getText().toString();
 
         EditText anoint_edit = findViewById(R.id.anoint_editText);
-        str[12] = anoint_edit.getText().toString();
+        str[13] = anoint_edit.getText().toString();
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
             EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[13 + i] = bonus.getText().toString();
+            str[14 + i] = bonus.getText().toString();
         }
 
         return str;
     }
 
-    public String[] saveShield(String date, String score, String lvl, String name) {
+    public String[] saveShield(String date, String score, String lvl, String name, String mayhem) {
+        String[] str = new String[11 + numBonus];
+
+        str[0] = date;
+        str[1] = score;
+        str[2] = lvl;
+        str[3] = name;
+        str[4] = type;
+        str[5] = mayhem;
+
+        //{date,score,lvl,name,type,capacity,delay,rate,element,anoint,bonuses...};
+        //get data from editTexts
+        EditText cap_edit = findViewById(R.id.cap_editText);
+        str[6] = cap_edit.getText().toString();
+
+        EditText delay_edit = findViewById(R.id.delay_editText);
+        str[7] = delay_edit.getText().toString();
+
+        EditText rate_edit = findViewById(R.id.rate_editText);
+        str[8] = rate_edit.getText().toString();
+
+        EditText element_edit = findViewById(R.id.element_editText);
+        str[9] = element_edit.getText().toString();
+
+        EditText anoint_edit = findViewById(R.id.anoint_editText);
+        str[10] = anoint_edit.getText().toString();
+
+        //get all the bonus stats
+        LinearLayout lay = findViewById(R.id.bonus_layout);
+        for (int i = 0; i < numBonus; i++) {
+            EditText bonus = (EditText) lay.getChildAt(i + 1);
+
+            str[11 + i] = bonus.getText().toString();
+        }
+
+        return str;
+    }
+
+    public String[] saveGrenadeMod(String date, String score, String lvl, String name, String mayhem) {
         String[] str = new String[10 + numBonus];
 
         str[0] = date;
@@ -289,17 +329,15 @@ public class AddItemActivity extends AppCompatActivity {
         str[2] = lvl;
         str[3] = name;
         str[4] = type;
+        str[5] = mayhem;
 
-        //{date,score,lvl,name,type,capacity,delay,rate,element,anoint,bonuses...};
+        //{date,score,lvl, name, type, dmg, radius,element,anoint, bonuses...};
         //get data from editTexts
-        EditText cap_edit = findViewById(R.id.cap_editText);
-        str[5] = cap_edit.getText().toString();
+        EditText dmg_edit = findViewById(R.id.dmg_editText);
+        str[6] = dmg_edit.getText().toString();
 
-        EditText delay_edit = findViewById(R.id.delay_editText);
-        str[6] = delay_edit.getText().toString();
-
-        EditText rate_edit = findViewById(R.id.rate_editText);
-        str[7] = rate_edit.getText().toString();
+        EditText radius_edit = findViewById(R.id.radius_editText);
+        str[7] = radius_edit.getText().toString();
 
         EditText element_edit = findViewById(R.id.element_editText);
         str[8] = element_edit.getText().toString();
@@ -318,43 +356,9 @@ public class AddItemActivity extends AppCompatActivity {
         return str;
     }
 
-    public String[] saveGrenadeMod(String date, String score, String lvl, String name) {
-        String[] str = new String[9 + numBonus];
+    public String[] saveClassMod(String date, String score, String lvl, String name, String mayhem) {
 
-        str[0] = date;
-        str[1] = score;
-        str[2] = lvl;
-        str[3] = name;
-        str[4] = type;
-
-        //{date,score,lvl, name, type, dmg, radius,element,anoint, bonuses...};
-        //get data from editTexts
-        EditText dmg_edit = findViewById(R.id.dmg_editText);
-        str[5] = dmg_edit.getText().toString();
-
-        EditText radius_edit = findViewById(R.id.radius_editText);
-        str[6] = radius_edit.getText().toString();
-
-        EditText element_edit = findViewById(R.id.element_editText);
-        str[7] = element_edit.getText().toString();
-
-        EditText anoint_edit = findViewById(R.id.anoint_editText);
-        str[8] = anoint_edit.getText().toString();
-
-        //get all the bonus stats
-        LinearLayout lay = findViewById(R.id.bonus_layout);
-        for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
-
-            str[9 + i] = bonus.getText().toString();
-        }
-
-        return str;
-    }
-
-    public String[] saveClassMod(String date, String score, String lvl, String name) {
-
-        String[] str = new String[12 + numBonus];
+        String[] str = new String[13 + numBonus];
 
         str[0] = date;
         str[1] = score;
@@ -362,25 +366,26 @@ public class AddItemActivity extends AppCompatActivity {
 //        str[2] = lvl; // mayhem lvl
         str[3] = name;
         str[4] = type;
+        str[5] = mayhem;
         Bundle extras = getIntent().getExtras();
-        str[5] = extras.getString("Character");
-        str[6] = extras.getString("Skill 1");
-        str[7] = extras.getString("Skill 2");
-        str[8] = extras.getString("Skill 3");
+        str[6] = extras.getString("Character");
+        str[7] = extras.getString("Skill 1");
+        str[8] = extras.getString("Skill 2");
+        str[9] = extras.getString("Skill 3");
 
         //{date,score,lvl, name, type, character, skill 1, skill 2, skill 3, s1 points, s2 points, s3 points, bonus};
         //get data from editTexts
 
         EditText skill1Points = findViewById(R.id.skill_1_points_editText);
-        str[9] = skill1Points.getText().toString();
+        str[10] = skill1Points.getText().toString();
 //        str[9] = "1";
 
         EditText skill2Points = findViewById(R.id.skill_2_points_editText);
-        str[10] = skill2Points.getText().toString();
+        str[11] = skill2Points.getText().toString();
 //        str[10] = "2";
 
         EditText skill3Points = findViewById(R.id.skill_3_points_editText);
-        str[11] = skill3Points.getText().toString();
+        str[12] = skill3Points.getText().toString();
 //        str[11] = "3";
 
 
@@ -389,7 +394,7 @@ public class AddItemActivity extends AppCompatActivity {
         for (int i = 0; i < numBonus; i++) {
             EditText bonus = (EditText) lay.getChildAt(i + 1);
 
-            str[12 + i] = bonus.getText().toString();
+            str[13 + i] = bonus.getText().toString();
         }
         return str;
     }
@@ -444,48 +449,49 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
 
-    public String[] saveArtifact(String date, String score, String lvl, String name) {
-        String[] str = new String[16 + numBonus];
+    public String[] saveArtifact(String date, String score, String lvl, String name, String mayhem) {
+        String[] str = new String[17 + numBonus];
 
         str[0] = date;
         str[1] = score;
         str[2] = lvl;
         str[3] = name;
         str[4] = type;
+        str[5] = mayhem;
 
         //get data from editTexts
         EditText line1_edit = findViewById(R.id.line1_left_editText);
-        str[5] = line1_edit.getText().toString();
+        str[6] = line1_edit.getText().toString();
 
         EditText line_left = findViewById(R.id.line2_left_editText);
-        str[6] = line_left.getText().toString();
+        str[7] = line_left.getText().toString();
 
         EditText line_right = findViewById(R.id.line2_right_editText);
-        str[7] = line_right.getText().toString();
+        str[8] = line_right.getText().toString();
 
         EditText line3_left = findViewById(R.id.line3_left_editText);
-        str[8] = line3_left.getText().toString();
+        str[9] = line3_left.getText().toString();
 
         EditText line3_right = findViewById(R.id.line3_right_editText);
-        str[9] = line3_right.getText().toString();
+        str[10] = line3_right.getText().toString();
 
         EditText line4_left = findViewById(R.id.line4_left_editText);
-        str[10] = line4_left.getText().toString();
+        str[11] = line4_left.getText().toString();
 
         EditText line4_right = findViewById(R.id.line4_right_editText);
-        str[11] = line4_right.getText().toString();
+        str[12] = line4_right.getText().toString();
 
         EditText stat1_edit = findViewById(R.id.stat1_editText);
-        str[12] = stat1_edit.getText().toString();
+        str[13] = stat1_edit.getText().toString();
 
         EditText stat2_edit = findViewById(R.id.stat2_editText);
-        str[13] = stat2_edit.getText().toString();
+        str[14] = stat2_edit.getText().toString();
 
         EditText stat3_edit = findViewById(R.id.stat3_editText);
-        str[14] = stat3_edit.getText().toString();
+        str[15] = stat3_edit.getText().toString();
 
         EditText stat4_edit = findViewById(R.id.stat4_editText);
-        str[15] = stat4_edit.getText().toString();
+        str[16] = stat4_edit.getText().toString();
 
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
