@@ -16,6 +16,11 @@ import com.RyanCh29.borderlandsvault.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * WIKI ACTIVITY HAS BEEN PUT ON HOLD FOR THE TIME BEING
+ */
+
+
 public class WikiActivity extends AppCompatActivity {
     private List<String[]> weaponsDB; //0
     private List<String[]> shieldsDB; //1

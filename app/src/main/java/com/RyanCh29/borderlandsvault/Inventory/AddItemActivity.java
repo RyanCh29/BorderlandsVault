@@ -208,7 +208,6 @@ public class AddItemActivity extends AppCompatActivity {
         String score = score_edit.getText().toString();
         String lvl = lvl_edit.getText().toString();
         String name = name_edit.getText().toString();
-        //TODO: add mayhem level
         String mayhem = mayhem_edit.getText().toString();
 
         CSVManipulator csv = new CSVManipulator();
@@ -275,7 +274,7 @@ public class AddItemActivity extends AppCompatActivity {
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
+            EditText bonus = (EditText) lay.getChildAt(i + 2);
 
             str[14 + i] = bonus.getText().toString();
         }
@@ -313,7 +312,7 @@ public class AddItemActivity extends AppCompatActivity {
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
+            EditText bonus = (EditText) lay.getChildAt(i + 2);
 
             str[11 + i] = bonus.getText().toString();
         }
@@ -348,7 +347,7 @@ public class AddItemActivity extends AppCompatActivity {
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
+            EditText bonus = (EditText) lay.getChildAt(i + 2);
 
             str[10 + i] = bonus.getText().toString();
         }
@@ -392,7 +391,7 @@ public class AddItemActivity extends AppCompatActivity {
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
+            EditText bonus = (EditText) lay.getChildAt(i + 2);
 
             str[13 + i] = bonus.getText().toString();
         }
@@ -443,9 +442,6 @@ public class AddItemActivity extends AppCompatActivity {
         } else {
             System.out.println("error---------------------------------------------------------------------------------------");
         }
-
-
-
     }
 
 
@@ -496,7 +492,7 @@ public class AddItemActivity extends AppCompatActivity {
         //get all the bonus stats
         LinearLayout lay = findViewById(R.id.bonus_layout);
         for (int i = 0; i < numBonus; i++) {
-            EditText bonus = (EditText) lay.getChildAt(i + 1);
+            EditText bonus = (EditText) lay.getChildAt(i + 2);
 
             str[16 + i] = bonus.getText().toString();
         }
@@ -517,6 +513,7 @@ public class AddItemActivity extends AppCompatActivity {
         newBonus.setTextColor(Color.parseColor("#ffffff"));
         newBonus.setHintTextColor(Color.parseColor("#ffffff"));
         newBonus.setInputType(TYPE_CLASS_TEXT);
+        newBonus.setTextSize(18);
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         newBonus.setLayoutParams(params);

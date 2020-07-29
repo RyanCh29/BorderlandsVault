@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import com.RyanCh29.borderlandsvault.R;
 
+/*
+ * MAIN ACTIVITY HAS BEEN PUT ON HOLD FOR THE TIME BEING
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.RyanCh29.borderlandsvault.R;
 
+/*
+ * SKILL ACTIVITY HAS BEEN PUT ON HOLD FOR THE TIME BEING
+ */
 
 public class SkillActivity extends AppCompatActivity {
 
