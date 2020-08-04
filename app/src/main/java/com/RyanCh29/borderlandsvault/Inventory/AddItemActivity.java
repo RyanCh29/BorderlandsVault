@@ -169,9 +169,6 @@ public class AddItemActivity extends AppCompatActivity {
                 }
             });
 
-
-
-
         } else if (type.equals("artifact")) {
             setContentView(R.layout.activity_add_artifact);
 
@@ -233,7 +230,6 @@ public class AddItemActivity extends AppCompatActivity {
         }
 
     }
-
 
     public String[] saveWeapon(String date, String score, String lvl, String name, String mayhem) {
         String[] str = new String[14 + numBonus];
@@ -444,7 +440,6 @@ public class AddItemActivity extends AppCompatActivity {
         }
     }
 
-
     public String[] saveArtifact(String date, String score, String lvl, String name, String mayhem) {
         String[] str = new String[17 + numBonus];
 
@@ -520,8 +515,5 @@ public class AddItemActivity extends AppCompatActivity {
 
         layout.addView(newBonus);
 
-
     }
-
-
 }
