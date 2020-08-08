@@ -3,9 +3,13 @@ package com.RyanCh29.borderlandsvault.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -127,12 +131,19 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
             }
 
             TableRow tr = new TableRow(getApplicationContext());
+
+            //TODO: make a divider drawable and add it to the table/ table row
             for(int i=0; i<buttons.length;i++) {
                 if(i<size) {
 //                    System.out.println(i);
                     buttons[i] = new Button(getApplicationContext());
                     buttons[i].setText(content.get(i)[3]);
+                    buttons[i].setTextColor(Color.parseColor("#ffffff"));
                     buttons[i].setId(i);
+                    buttons[i].setBackgroundResource(R.drawable.inventory_item_background);
+
+                    buttons[i].setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1));
+
 
                     final int finalI = i;
 
@@ -184,11 +195,25 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                     //TODO: make the empty button look like the empty slots in the in-game inventory
                     buttons[i] = new Button(getApplicationContext());
                     buttons[i].setText("Empty");
+                    buttons[i].setTextColor(Color.parseColor("#ffffff"));
+                    buttons[i].setBackgroundResource(R.drawable.inventory_empty_item_background);
+                    buttons[i].setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1));
+
+
                     tr.addView(buttons[i]);
 
                 }
 
                 if((i%2)==1){
+                    Drawable verticalDivider = getResources().getDrawable(R.drawable.inventory_table_divider_vertical);
+                    tr.setDividerDrawable(verticalDivider);
+
+                    tr.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+
+//                    tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1));
+
+
+
                     layout.addView(tr);
                     tr = new TableRow(getApplicationContext());
                 }

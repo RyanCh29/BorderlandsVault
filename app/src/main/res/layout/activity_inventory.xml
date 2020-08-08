@@ -7,7 +7,32 @@
     tools:context=".Activities.InventoryActivity">
 
     <!--android:onClick="startMainActivity" -->
-    <Button
+
+    <ImageView
+        android:id="@+id/background_imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/bottom_border_imageView"
+        app:layout_constraintEnd_toEndOf="@id/top_border_imageView"
+        app:layout_constraintStart_toStartOf="@id/top_border_imageView"
+        app:layout_constraintTop_toBottomOf="@id/top_border_imageView"
+        app:srcCompat="@drawable/inventory_background" />
+
+    <ImageView
+        android:id="@+id/top_border_imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bannerText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/inventory_top_bar" />
+
+    <!--Button
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,10 +42,10 @@
         app:layout_constraintEnd_toStartOf="@+id/wikiButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
     <!--android:onClick="startWikiActivity"-->
-    <Button
+    <!--Button
         android:id="@+id/wikiButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,9 +54,9 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/homeButton"
         app:layout_constraintEnd_toStartOf="@+id/inventoryButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/homeButton" />
+        app:layout_constraintStart_toEndOf="@+id/homeButton" />-->
 
-    <Button
+    <!--Button
         android:id="@+id/inventoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,10 +64,10 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/wikiButton"
         app:layout_constraintEnd_toStartOf="@+id/buildsButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/wikiButton" />
+        app:layout_constraintStart_toEndOf="@+id/wikiButton" />-->
 
     <!--android:onClick="startSkillActivity"-->
-    <Button
+    <!--Button
         android:id="@+id/buildsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,37 +76,29 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/inventoryButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
+        app:layout_constraintStart_toEndOf="@+id/inventoryButton" />-->
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <ImageView
+        android:id="@+id/sort_bar_imageView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerText">
-
-        <TableLayout
-            android:id="@+id/table"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*" />
-    </ScrollView>
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bannerText"
+        app:layout_constraintEnd_toEndOf="@+id/right_sort_button"
+        app:layout_constraintStart_toStartOf="@+id/left_sort_button"
+        app:layout_constraintTop_toTopOf="@+id/bannerText"
+        app:srcCompat="@drawable/inventory_sort_bar" />
 
     <TextView
         android:id="@+id/bannerText"
         android:layout_width="0dp"
         android:layout_height="39dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/right_sort_button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/left_sort_button"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/top_border_imageView" />
 
     <Button
         android:id="@+id/left_sort_button"
@@ -103,30 +120,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bannerText" />
 
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/scroll_end_guidelineH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerText"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/inventory_table_divider_horizontal"
+            android:showDividers="middle" />
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/scroll_end_guidelineH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
         android:queryHint="Search"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+        app:layout_constraintTop_toBottomOf="@id/scroll_end_guidelineH" />
 
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:onClick="addGear"
         android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scroll_end_guidelineH" />
 
-
+    <ImageView
+        android:id="@+id/bottom_border_imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:srcCompat="@drawable/inventory_bottom_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
