@@ -9,17 +9,6 @@
     <!--android:onClick="startMainActivity" -->
 
     <ImageView
-        android:id="@+id/background_imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@id/bottom_border_imageView"
-        app:layout_constraintEnd_toEndOf="@id/top_border_imageView"
-        app:layout_constraintStart_toStartOf="@id/top_border_imageView"
-        app:layout_constraintTop_toBottomOf="@id/top_border_imageView"
-        app:srcCompat="@drawable/inventory_background" />
-
-    <ImageView
         android:id="@+id/top_border_imageView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -79,6 +68,17 @@
         app:layout_constraintStart_toEndOf="@+id/inventoryButton" />-->
 
     <ImageView
+        android:id="@+id/background_imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/bottom_border_imageView"
+        app:layout_constraintEnd_toEndOf="@id/top_border_imageView"
+        app:layout_constraintStart_toStartOf="@id/top_border_imageView"
+        app:layout_constraintTop_toBottomOf="@id/top_border_imageView"
+        app:srcCompat="@drawable/inventory_background" />
+
+    <ImageView
         android:id="@+id/sort_bar_imageView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -95,6 +95,7 @@
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/right_sort_button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/left_sort_button"
@@ -120,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bannerText" />
 
-    <ScrollView
+    <!--ScrollView
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -138,8 +139,90 @@
             android:id="@+id/table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@drawable/inventory_table_divider_horizontal"
-            android:showDividers="middle" />
+            android:stretchColumns="*"/>
+    </ScrollView-->
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/scroll_end_guidelineH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerText"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linear_layoutV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/inventory_empty_item_background" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="TextView"
+                        android:textColor="#FFFFFF" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="TextView"
+                        android:textColor="#FFFFFF" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/inventory_empty_item_background" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline

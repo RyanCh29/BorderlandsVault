@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -43,7 +46,6 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
     private int removalList;
     private int removalItem;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         readFiles();
 
         choice = "";
-        //set default output to all items
+        //set default output to weapons
         currentContent = 0;
         changeBanner("Legendary Weapons");
         showContent(weapons);
@@ -82,21 +84,23 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
 
     }
 
-    public void startMainActivity(View view) {
+//    public void startMainActivity(View view) {
         //start main activity
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-    public void startWikiActivity(View view) {
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+//    }
+
+//    public void startWikiActivity(View view) {
         //start wiki activity
-        Intent intent = new Intent(this, WikiActivity.class);
-        startActivity(intent);
-    }
-    public void startSkillActivity(View view) {
+//        Intent intent = new Intent(this, WikiActivity.class);
+//        startActivity(intent);
+//    }
+
+//    public void startSkillActivity(View view) {
         //start skill activity
-        Intent intent = new Intent(this, SkillActivity.class);
-        startActivity(intent);
-    }
+//        Intent intent = new Intent(this, SkillActivity.class);
+//        startActivity(intent);
+//    }
 
     public void  makeToast(String[] item) {
         StringBuilder text = new StringBuilder();
@@ -108,42 +112,104 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
         toast.show();
     }
 
+    public int getPadding(int pToDp) {
+        float scale = getResources().getDisplayMetrics().density;
+        int padding = (int) (pToDp*scale + 0.5f);
+        return padding;
+    }
+
     public void showContent(final List<String[]> content) {
         //clear existing
-        TableLayout layout = findViewById(R.id.table);
+        LinearLayout layout = findViewById(R.id.linear_layoutV);
         layout.removeAllViews();
+        LinearLayout lin = new LinearLayout(getApplicationContext());
 
         int size = content.size();
 
         if(size==0) {
             //TODO: make the empty button look like the empty slots in the in-game inventory
-            Button emptyButton = new Button(getApplicationContext());
-            emptyButton.setText("Empty");
-            layout.addView(emptyButton);
+            ImageButton[] emptyButton = new ImageButton[2];
+
+            for (int i = 0; i < 2; i++) {
+                emptyButton[i] = new ImageButton(getApplicationContext());
+
+                emptyButton[i] .setImageResource(R.drawable.inventory_empty_item_background);
+                emptyButton[i] .setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT,1));
+                emptyButton[i] .setAdjustViewBounds(true);
+                emptyButton[i] .setBackgroundResource(0);
+                int padding = getPadding(4);
+                emptyButton[i] .setPadding(padding,padding,padding,padding);
+                emptyButton[i] .setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+
+                TextView text = new TextView(getApplicationContext());
+                text.setText("EMPTY");
+                text.setTextColor(Color.parseColor("#ffffff"));
+
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+                text.setLayoutParams(layoutParams);
+
+                RelativeLayout rel = new RelativeLayout(getApplicationContext());
+                rel.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,1));
+
+                rel.addView(emptyButton[i]);
+                rel.addView(text);
+                lin.addView(rel);
+
+
+            }
+            layout.addView(lin);
+
         }
         else {
-            Button[] buttons;
+
+            ImageButton[] buttons;
             if(size%2==1) {
-                buttons = new Button[size+1];
+                buttons = new ImageButton[size+1];
             }
             else {
-                buttons = new Button[size];
+                buttons = new ImageButton[size];
             }
 
-            TableRow tr = new TableRow(getApplicationContext());
-
-            //TODO: make a divider drawable and add it to the table/ table row
+//            LinearLayout lin = new LinearLayout(getApplicationContext());
             for(int i=0; i<buttons.length;i++) {
                 if(i<size) {
 //                    System.out.println(i);
-                    buttons[i] = new Button(getApplicationContext());
-                    buttons[i].setText(content.get(i)[3]);
-                    buttons[i].setTextColor(Color.parseColor("#ffffff"));
+                    buttons[i] = new ImageButton(getApplicationContext());
+                    buttons[i].setImageResource(R.drawable.inventory_item_background);
                     buttons[i].setId(i);
-                    buttons[i].setBackgroundResource(R.drawable.inventory_item_background);
+                    buttons[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT,1));
+                    buttons[i].setAdjustViewBounds(true);
+                    buttons[i].setBackgroundResource(0);
+                    int padding = getPadding(4);
+                    buttons[i].setPadding(padding,padding,padding,padding);
+                    buttons[i].setScaleType(ImageView.ScaleType.FIT_CENTER);
 
-                    buttons[i].setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1));
+                    //TODO: set text over top the image buttons
+                    //centered
+                    TextView nameText = new TextView(getApplicationContext());
+                    nameText.setText(content.get(i)[3]);
+                    nameText.setTextColor(Color.parseColor("#ffffff"));
 
+                    RelativeLayout.LayoutParams textParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    textParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+
+                    nameText.setLayoutParams(textParams);
+
+                    //TODO: set text over top the image buttons
+                    //bottom left
+                    TextView scoreText = new TextView(getApplicationContext());
+                    scoreText.setText(content.get(i)[1]);
+                    scoreText.setTextColor(Color.parseColor("#ffffff"));
+
+                    RelativeLayout.LayoutParams scoreParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    scoreParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+
+                    padding = getPadding(8);
+                    scoreText.setPadding(padding,padding,padding,padding);
+
+                    scoreText.setLayoutParams(scoreParams);
 
                     final int finalI = i;
 
@@ -189,33 +255,49 @@ public class InventoryActivity extends AppCompatActivity implements ChoiceDialog
                         }
                     });
 
-                    tr.addView(buttons[i]);
+                    RelativeLayout rel = new RelativeLayout(getApplicationContext());
+                    rel.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,1));
+
+                    rel.addView(buttons[i]);
+                    rel.addView(nameText);
+                    rel.addView(scoreText);
+                    lin.addView(rel);
                 }
                 else if(i==size) {
-                    //TODO: make the empty button look like the empty slots in the in-game inventory
-                    buttons[i] = new Button(getApplicationContext());
-                    buttons[i].setText("Empty");
-                    buttons[i].setTextColor(Color.parseColor("#ffffff"));
-                    buttons[i].setBackgroundResource(R.drawable.inventory_empty_item_background);
-                    buttons[i].setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1));
+                    //make empty button
+                    buttons[i] = new ImageButton(getApplicationContext());
+                    buttons[i].setImageResource(R.drawable.inventory_empty_item_background);
+                    buttons[i].setId(i);
+                    buttons[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT,1));
+                    buttons[i].setAdjustViewBounds(true);
+                    buttons[i].setBackgroundResource(0);
+                    int padding = getPadding(4);
+                    buttons[i].setPadding(padding,padding,padding,padding);
+                    buttons[i].setScaleType(ImageView.ScaleType.FIT_CENTER);
 
+                    TextView text = new TextView(getApplicationContext());
+                    text.setText("EMPTY");
+                    text.setTextColor(Color.parseColor("#ffffff"));
 
-                    tr.addView(buttons[i]);
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+
+                    text.setLayoutParams(layoutParams);
+
+                    RelativeLayout rel = new RelativeLayout(getApplicationContext());
+                    rel.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,1));
+
+                    rel.addView(buttons[i]);
+                    rel.addView(text);
+                    lin.addView(rel);
 
                 }
 
                 if((i%2)==1){
-                    Drawable verticalDivider = getResources().getDrawable(R.drawable.inventory_table_divider_vertical);
-                    tr.setDividerDrawable(verticalDivider);
+                    lin.setOrientation(LinearLayout.HORIZONTAL);
 
-                    tr.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-
-//                    tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1));
-
-
-
-                    layout.addView(tr);
-                    tr = new TableRow(getApplicationContext());
+                    layout.addView(lin);
+                    lin = new LinearLayout(getApplicationContext());
                 }
             }
         }
